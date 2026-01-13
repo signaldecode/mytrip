@@ -3,11 +3,13 @@ import { ref } from 'vue'
 
 const router = useRouter()
 const isTransitioning = ref(false)
+const isFirstLoad = ref(true)
 
 // 페이지 전환 시작 전 비행기 애니메이션 실행
 router.beforeEach((to, from, next) => {
-  // 같은 페이지면 전환 효과 스킵
-  if (to.path === from.path) {
+  // 첫 로드 또는 같은 페이지면 전환 효과 스킵
+  if (isFirstLoad.value || !from.name || to.path === from.path) {
+    isFirstLoad.value = false
     next()
     return
   }

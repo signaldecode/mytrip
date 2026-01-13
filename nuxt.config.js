@@ -4,6 +4,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png' },
+      ],
+      meta: [
+        { name: 'msapplication-TileColor', content: '#ffffff' },
+        { name: 'theme-color', content: '#ffffff' },
+      ],
+    },
     pageTransition: {
       name: 'page',
       mode: 'out-in',
