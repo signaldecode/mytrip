@@ -210,7 +210,8 @@
     }
   }
 
-  &__logo-wrap:hover &__logo {
+  // 기본(default) variant hover 스타일
+  &--default &__logo-wrap:hover &__logo {
     filter: brightness(0) invert(1);
     opacity: 1;
   }
