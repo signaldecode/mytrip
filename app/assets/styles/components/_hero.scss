@@ -1,0 +1,190 @@
+/**
+ * Hero Components
+ * - 히어로 섹션 스타일
+ * - .hero--main: 메인 페이지 히어로 (배경 이미지)
+ * - .hero--page: 서브 페이지 히어로 (그라데이션 배경)
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// Hero Base
+// ===========================
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  // Background wrapper
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  // Content wrapper
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  // Title
+  &__title {
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $neutral-0;
+    white-space: pre-line;
+  }
+
+  // Description / Subtitle
+  &__description,
+  &__subtitle {
+    line-height: $line-height-relaxed;
+    max-width: 600px;
+  }
+}
+
+// ===========================
+// Hero Main (Home Page)
+// ===========================
+
+.hero--main {
+  min-height: 600px;
+
+  @media (min-width: $container-md) {
+    min-height: 700px;
+  }
+
+  // Background image
+  .hero__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Dark overlay
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba($neutral-900, 0.6),
+      rgba($neutral-900, 0.8)
+    );
+  }
+
+  // Content
+  .hero__content {
+    padding-top: $space-16;
+    padding-bottom: $space-16;
+  }
+
+  // Title
+  .hero__title {
+    font-size: $heading-2-size;
+    margin-bottom: $space-4;
+
+    @media (min-width: $container-md) {
+      font-size: $heading-1-size;
+    }
+
+    @media (min-width: $container-lg) {
+      font-size: $font-size-6xl;
+    }
+  }
+
+  // Subtitle
+  .hero__subtitle {
+    font-size: $body-lg-size;
+    color: $neutral-200;
+    margin-bottom: $space-8;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  // CTA Button Group
+  .hero__cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+
+    @media (min-width: $container-md) {
+      flex-direction: row;
+      gap: $space-4;
+    }
+  }
+
+  .hero__cta {
+    min-width: 160px;
+
+    @media (min-width: $container-md) {
+      min-width: 180px;
+    }
+  }
+}
+
+// ===========================
+// Hero Page (Sub Pages)
+// ===========================
+
+.hero--page {
+  min-height: 320px;
+
+  @media (min-width: $container-md) {
+    min-height: 400px;
+  }
+
+  // Gradient background
+  .hero__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $primary-600 0%, $primary-800 50%, $neutral-900 100%);
+  }
+
+  // Content
+  .hero__content {
+    gap: $space-4;
+    padding-top: $space-12;
+    padding-bottom: $space-12;
+
+    @media (min-width: $container-md) {
+      padding-top: $space-16;
+      padding-bottom: $space-16;
+    }
+  }
+
+  // Title
+  .hero__title {
+    font-size: $font-size-2xl;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-4xl;
+    }
+
+    @media (min-width: $container-lg) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  // Description
+  .hero__description {
+    font-size: $font-size-base;
+    color: $primary-100;
+    max-width: 560px;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+}

@@ -1,0 +1,383 @@
+/**
+ * Contact Page Styles
+ * - 문의하기 페이지 전용 스타일
+ * - .contact-hero: 문의 히어로 섹션
+ * - .contact-form-section: 폼 섹션
+ * - .contact-form: 문의 폼
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// Contact Hero Section
+// ===========================
+
+.contact-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 320px;
+  overflow: hidden;
+
+  @media (min-width: $container-md) {
+    min-height: 400px;
+  }
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__gradient {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $primary-600 0%, $primary-800 50%, $neutral-900 100%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $space-4;
+    padding-top: $space-12;
+    padding-bottom: $space-12;
+
+    @media (min-width: $container-md) {
+      padding-top: $space-16;
+      padding-bottom: $space-16;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $neutral-0;
+    white-space: pre-line;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-4xl;
+    }
+
+    @media (min-width: $container-lg) {
+      font-size: $font-size-5xl;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $primary-100;
+    max-width: 560px;
+    white-space: pre-line;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+// ===========================
+// Contact Form Section
+// ===========================
+
+.contact-form-section {
+  padding: $space-12 0;
+  background-color: $neutral-50;
+
+  @media (min-width: $container-md) {
+    padding: $space-16 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $space-8;
+
+    @media (min-width: $container-lg) {
+      flex-direction: row;
+      gap: $space-12;
+    }
+  }
+
+  &__main {
+    flex: 1;
+  }
+
+  &__sidebar {
+    width: 100%;
+    background-color: $color-surface;
+    border-radius: $radius-xl;
+    padding: $space-6;
+    height: fit-content;
+
+    @media (min-width: $container-lg) {
+      width: 320px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__sidebar-title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $space-5;
+  }
+
+  &__info-list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+    list-style: none;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3;
+  }
+
+  &__info-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: $primary-50;
+    border-radius: $radius-lg;
+    color: $primary-600;
+    flex-shrink: 0;
+  }
+
+  &__info-content {
+    display: flex;
+    flex-direction: column;
+    gap: $space-0-5;
+    padding-top: $space-1;
+  }
+
+  &__info-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__info-value {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+
+    &--link {
+      color: $primary-600;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $primary-700;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ===========================
+// Contact Form
+// ===========================
+
+.contact-form {
+  background-color: $color-surface;
+  border-radius: $radius-xl;
+  padding: $space-6;
+  box-shadow: 0 4px 20px rgba($neutral-900, 0.05);
+
+  @media (min-width: $container-md) {
+    padding: $space-8;
+  }
+
+  &__fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-5;
+
+    @media (min-width: $container-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+
+    &--full {
+      @media (min-width: $container-md) {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  &__label {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-primary;
+  }
+
+  &__required {
+    color: $primary-500;
+    margin-left: $space-0-5;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: $space-3 $space-4;
+    font-family: inherit;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    background-color: $color-surface;
+    border: 2px solid $neutral-200;
+    border-radius: $radius-lg;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: $color-text-tertiary;
+    }
+
+    &:hover {
+      border-color: $primary-300;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 4px rgba($primary-500, 0.1);
+    }
+  }
+
+  &__textarea {
+    min-height: 160px;
+    resize: vertical;
+  }
+
+  &__select-wrap {
+    position: relative;
+  }
+
+  &__select {
+    appearance: none;
+    padding-right: $space-10;
+    cursor: pointer;
+    background-color: $color-surface;
+
+    &:invalid,
+    &:has(option[value=""]:checked) {
+      color: $color-text-tertiary;
+    }
+  }
+
+  &__select-icon {
+    position: absolute;
+    right: $space-4;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-text-tertiary;
+    pointer-events: none;
+    transition: color $transition-fast;
+
+    .contact-form__select:focus + & {
+      color: $primary-500;
+    }
+  }
+
+  &__help {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+    margin-top: $space-1;
+  }
+
+  &__consent {
+    margin-top: $space-6;
+    padding-top: $space-6;
+    border-top: 1px solid $color-border-light;
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: $primary-600;
+      cursor: pointer;
+      border-radius: $radius-sm;
+    }
+
+    label {
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+      cursor: pointer;
+    }
+  }
+
+  &__submit {
+    margin-top: $space-6;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: $space-4;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+
+    @media (min-width: $container-md) {
+      width: auto;
+      min-width: 200px;
+    }
+  }
+
+  &__success {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $space-2;
+    margin-top: $space-4;
+    padding: $space-4;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $success-700;
+    background-color: $success-50;
+    border: 1px solid $success-200;
+    border-radius: $radius-lg;
+
+    svg {
+      color: $success-600;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// ===========================
+// Transitions
+// ===========================
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

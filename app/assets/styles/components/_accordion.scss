@@ -1,0 +1,375 @@
+/**
+ * Accordion Components
+ * - 아코디언/FAQ 스타일
+ * - .faq-item: FAQ 아코디언
+ * - .qna-accordion: Q&A 아코디언
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// FAQ Section (Home page)
+// ===========================
+
+.faq-section {
+  background-color: $color-background;
+
+  &__list {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-xl;
+    padding: 0 $space-6;
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+    margin-top: $space-10;
+  }
+}
+
+// ===========================
+// FAQ Item (Home page)
+// ===========================
+
+.faq-item {
+  border-bottom: 1px solid $color-border-light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__header {
+    margin: 0;
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $space-5 0;
+    font-family: inherit;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    text-align: left;
+    color: $color-text-primary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color $transition-fast;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+
+    &:hover {
+      color: $primary-600;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-border-focus;
+      outline-offset: 2px;
+    }
+  }
+
+  &__question {
+    flex: 1;
+    padding-right: $space-4;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: $color-text-tertiary;
+    transition: transform $transition-base;
+    flex-shrink: 0;
+
+    .faq-item--open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__panel {
+    overflow: hidden;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__answer {
+    padding-bottom: $space-5;
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+    color: $color-text-secondary;
+  }
+}
+
+// ===========================
+// Q&A Accordion (Q&A page)
+// ===========================
+
+.qna-accordion {
+  background-color: $color-surface;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: border-color $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    border-color: $primary-200;
+  }
+
+  &--open {
+    border-color: $primary-300;
+    box-shadow: 0 4px 16px rgba($primary-500, 0.1);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-4;
+    width: 100%;
+    padding: $space-4;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color $transition-fast;
+
+    @media (min-width: $container-md) {
+      padding: $space-5;
+    }
+
+    &:hover {
+      background-color: $neutral-50;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-border-focus;
+      outline-offset: -2px;
+    }
+  }
+
+  &__header-content {
+    display: flex;
+    align-items: flex-start;
+    gap: $space-3;
+    flex: 1;
+    min-width: 0;
+
+    @media (min-width: $container-md) {
+      align-items: center;
+    }
+  }
+
+  &__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+    background-color: $primary-500;
+    border-radius: $radius-lg;
+    flex-shrink: 0;
+
+    @media (min-width: $container-md) {
+      width: 32px;
+      height: 32px;
+      font-size: $font-size-base;
+    }
+
+    &--answer {
+      background-color: $success-500;
+    }
+  }
+
+  &__title-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    flex: 1;
+    min-width: 0;
+
+    @media (min-width: $container-md) {
+      flex-direction: row;
+      align-items: center;
+      gap: $space-3;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    line-height: $line-height-snug;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__course {
+    flex-shrink: 0;
+    width: fit-content;
+    padding: $space-0-5 $space-2;
+    font-size: 10px;
+    font-weight: $font-weight-medium;
+    color: $primary-700;
+    background-color: $primary-50;
+    border-radius: $radius-full;
+    white-space: nowrap;
+
+    @media (min-width: $container-md) {
+      padding: $space-1 $space-2-5;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: $color-text-tertiary;
+    transition: transform $transition-base, color $transition-base;
+    flex-shrink: 0;
+
+    .qna-accordion--open & {
+      transform: rotate(180deg);
+      color: $primary-500;
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows $transition-base;
+
+    .qna-accordion--open & {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  &__body-inner {
+    overflow: hidden;
+  }
+
+  &__question {
+    padding: 0 $space-4 $space-4;
+    border-bottom: 1px solid $color-border-light;
+
+    @media (min-width: $container-md) {
+      padding: 0 $space-5 $space-5;
+      padding-left: calc($space-5 + 32px + $space-3);
+    }
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    margin-bottom: $space-3;
+  }
+
+  &__author {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+  }
+
+  &__question-content {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__answer {
+    padding: $space-4;
+    background-color: $neutral-50;
+
+    @media (min-width: $container-md) {
+      padding: $space-5;
+    }
+  }
+
+  &__answer-header {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-3;
+  }
+
+  &__answer-meta {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+  }
+
+  &__answer-author {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  &__answer-date {
+    font-size: $font-size-xs;
+    color: $color-text-tertiary;
+  }
+
+  &__answer-content {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    padding-left: calc(32px + $space-3);
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-base;
+    }
+
+    strong {
+      font-weight: $font-weight-semibold;
+      color: $color-text-primary;
+    }
+
+    code {
+      display: block;
+      margin: $space-3 0;
+      padding: $space-3;
+      font-family: 'Fira Code', monospace;
+      font-size: $font-size-sm;
+      background-color: $neutral-800;
+      color: $neutral-100;
+      border-radius: $radius-lg;
+      overflow-x: auto;
+      white-space: pre;
+    }
+  }
+}

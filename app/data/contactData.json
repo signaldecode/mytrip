@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "문의하기 | 에듀테크 아카데미",
+    "description": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요. 빠른 시일 내에 답변드리겠습니다.",
+    "keywords": "문의하기, 상담, 강의문의, 결제문의, 제휴문의",
+    "ogTitle": "문의하기 | 에듀테크 아카데미",
+    "ogDescription": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요."
+  },
+  "hero": {
+    "badge": "Contact",
+    "title": "무엇이든 물어보세요",
+    "description": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요.\n빠른 시일 내에 답변드리겠습니다.",
+    "ariaLabel": "문의하기 히어로 섹션"
+  },
+  "form": {
+    "ariaLabel": "문의하기 폼",
+    "fields": [
+      {
+        "id": "contact-name",
+        "name": "name",
+        "label": "이름",
+        "type": "text",
+        "placeholder": "이름을 입력하세요",
+        "required": true
+      },
+      {
+        "id": "contact-email",
+        "name": "email",
+        "label": "이메일",
+        "type": "email",
+        "placeholder": "example@email.com",
+        "required": true,
+        "ariaDescribedBy": "contact-email-help",
+        "helpText": "답변받으실 이메일 주소를 입력해주세요"
+      },
+      {
+        "id": "contact-phone",
+        "name": "phone",
+        "label": "연락처",
+        "type": "tel",
+        "placeholder": "010-0000-0000",
+        "required": false
+      },
+      {
+        "id": "contact-type",
+        "name": "inquiryType",
+        "label": "문의 유형",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "value": "", "label": "문의 유형을 선택해주세요" },
+          { "value": "course", "label": "강의 관련 문의" },
+          { "value": "payment", "label": "결제/환불 문의" },
+          { "value": "partnership", "label": "제휴/협업 문의" },
+          { "value": "technical", "label": "기술 지원 문의" },
+          { "value": "other", "label": "기타 문의" }
+        ]
+      },
+      {
+        "id": "contact-message",
+        "name": "message",
+        "label": "문의 내용",
+        "type": "textarea",
+        "placeholder": "문의하실 내용을 자세히 적어주세요",
+        "required": true
+      }
+    ],
+    "privacyConsent": {
+      "id": "contact-privacy",
+      "label": "개인정보 수집 및 이용에 동의합니다",
+      "required": true,
+      "ariaDescribedBy": "contact-privacy-help",
+      "helpText": "문의 답변을 위해 이름, 이메일, 연락처를 수집합니다"
+    },
+    "submitButton": {
+      "label": "문의하기",
+      "loadingLabel": "전송 중...",
+      "successLabel": "전송 완료!",
+      "ariaLabel": "문의 내용 제출하기",
+      "variant": "primary"
+    },
+    "successMessage": "문의가 성공적으로 전송되었습니다. 빠른 시일 내에 답변 드리겠습니다."
+  },
+  "info": {
+    "title": "다른 방법으로 연락하기",
+    "items": [
+      {
+        "id": "info-email",
+        "icon": "mail",
+        "label": "이메일",
+        "value": "contact@edutech.example.com",
+        "link": "mailto:contact@edutech.example.com"
+      },
+      {
+        "id": "info-phone",
+        "icon": "phone",
+        "label": "전화",
+        "value": "02-1234-5678",
+        "link": "tel:02-1234-5678"
+      },
+      {
+        "id": "info-hours",
+        "icon": "clock",
+        "label": "운영 시간",
+        "value": "평일 09:00 - 18:00"
+      }
+    ]
+  }
+}

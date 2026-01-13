@@ -1,0 +1,788 @@
+/**
+ * About Page Styles
+ * - 소개 페이지 전용 스타일
+ * - .about-hero: 소개 페이지 히어로 섹션
+ * - .field-orbit: 학습 분야 궤도 애니메이션
+ * - .stats-section: 통계 섹션
+ * - .stat-card: 통계 카드 (숫자 카운트 애니메이션)
+ * - .core-values: 핵심가치 섹션
+ * - .value-card: 핵심가치 카드
+ * - .about-partners: 파트너사 섹션
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// About Hero Section
+// - 소개 페이지 상단 히어로 영역
+// - 어두운 배경 + 학습 분야 궤도 시각화
+// ===========================
+
+.about-hero {
+  position: relative;
+  padding: $section-padding-y 0;
+  background: linear-gradient(135deg, $neutral-900 0%, $neutral-800 50%, #1a1a2e 100%);
+  overflow: hidden;
+
+  @media (min-width: $container-lg) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  // 배경 그라데이션 오버레이
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba($primary-500, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba($primary-400, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-12;
+
+    @media (min-width: $container-lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $space-16;
+    }
+  }
+
+  &__content {
+    text-align: center;
+
+    @media (min-width: $container-lg) {
+      flex: 1;
+      text-align: left;
+      max-width: 480px;
+    }
+  }
+
+  &__title {
+    margin-bottom: $space-4;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+    line-height: $line-height-tight;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+
+    @media (min-width: $container-lg) {
+      font-size: $font-size-4xl;
+    }
+
+    // 브랜드 컬러로 강조 키워드
+    strong, em {
+      color: $primary-400;
+      font-style: normal;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $neutral-300;
+    line-height: $line-height-relaxed;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  &__visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// ===========================
+// Field Orbit
+// - 학습 분야 궤도 애니메이션
+// - 중앙 원 주위로 분야 태그가 회전
+// ===========================
+
+// 궤도 회전 애니메이션
+@keyframes orbit {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-140px) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateY(-140px) rotate(calc(-1 * var(--angle) - 360deg));
+  }
+}
+
+@keyframes orbit-md {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-170px) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateY(-170px) rotate(calc(-1 * var(--angle) - 360deg));
+  }
+}
+
+// 중앙 원 펄스 애니메이션
+@keyframes pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+// 플로팅 애니메이션
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+// 링 회전 애니메이션
+@keyframes ring-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes ring-rotate-reverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+// 파티클 플로팅 애니메이션
+@keyframes particle-float {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) rotate(calc(var(--particle-index) * 30deg)) translateY(-180px) scale(0.8);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) rotate(calc(var(--particle-index) * 30deg + 15deg)) translateY(-200px) scale(1.2);
+  }
+}
+
+.field-orbit {
+  position: relative;
+  width: 340px;
+  height: 340px;
+
+  @media (min-width: $container-md) {
+    width: 420px;
+    height: 420px;
+  }
+
+  // 궤도 링 (점선 원)
+  &__ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: $radius-full;
+    border: 1px dashed rgba($primary-300, 0.5);
+
+    // 외부 링
+    &--outer {
+      width: 320px;
+      height: 320px;
+      animation: ring-rotate 60s linear infinite;
+
+      @media (min-width: $container-md) {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    // 중간 링
+    &--middle {
+      width: 240px;
+      height: 240px;
+      border-color: rgba($primary-400, 0.4);
+      animation: ring-rotate-reverse 45s linear infinite;
+
+      @media (min-width: $container-md) {
+        width: 300px;
+        height: 300px;
+      }
+    }
+
+    // 내부 링
+    &--inner {
+      width: 160px;
+      height: 160px;
+      border-color: rgba($primary-300, 0.3);
+      animation: ring-rotate 30s linear infinite;
+
+      @media (min-width: $container-md) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  // 장식용 파티클
+  &__particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: $primary-300;
+    border-radius: $radius-full;
+    opacity: 0;
+    animation: particle-float 4s ease-in-out infinite;
+    animation-delay: calc(var(--particle-index) * 0.3s);
+
+    .field-orbit--visible & {
+      opacity: 0.5;
+    }
+  }
+
+  // 중앙 원
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, $primary-400 0%, $primary-600 100%);
+    border-radius: $radius-full;
+    box-shadow:
+      0 0 60px rgba($primary-400, 0.6),
+      0 0 120px rgba($primary-500, 0.3),
+      inset 0 -4px 12px rgba($neutral-900, 0.2);
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+
+    @media (min-width: $container-md) {
+      width: 120px;
+      height: 120px;
+    }
+  }
+
+  // 중앙 글로우 효과
+  &__center-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba($primary-400, 0.5) 0%, transparent 70%);
+    border-radius: $radius-full;
+    animation: pulse 2s ease-in-out infinite;
+
+    @media (min-width: $container-md) {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  // 중앙 텍스트
+  &__center-text {
+    position: relative;
+    z-index: 1;
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+    text-shadow: 0 2px 4px rgba($neutral-900, 0.3);
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // 궤도 아이템 (학습 분야 태그)
+  &__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $space-1;
+    width: 72px;
+    height: 72px;
+    background: var(--item-bg);
+    border-radius: $radius-full;
+    box-shadow:
+      0 4px 20px var(--item-shadow),
+      inset 0 1px 0 rgba($neutral-0, 0.3);
+    cursor: pointer;
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-140px) rotate(calc(-1 * var(--angle)));
+    transition: opacity 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition-delay: var(--delay);
+
+    @media (min-width: $container-md) {
+      width: 80px;
+      height: 80px;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-170px) rotate(calc(-1 * var(--angle)));
+    }
+
+    .field-orbit--visible & {
+      opacity: 1;
+      animation: orbit var(--orbit-duration) linear infinite;
+      animation-delay: var(--delay);
+
+      @media (min-width: $container-md) {
+        animation-name: orbit-md;
+      }
+    }
+
+    &:hover {
+      animation-play-state: paused !important;
+      box-shadow:
+        0 8px 32px var(--item-shadow),
+        inset 0 1px 0 rgba($neutral-0, 0.4);
+      z-index: 20;
+    }
+  }
+
+  &__item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($neutral-0, 0.9);
+
+    svg {
+      width: 14px;
+      height: 14px;
+      filter: drop-shadow(0 1px 2px rgba($neutral-900, 0.2));
+
+      @media (min-width: $container-md) {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  &__item-text {
+    font-size: 10px;
+    font-weight: $font-weight-semibold;
+    color: $neutral-0;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba($neutral-900, 0.3);
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// ===========================
+// Stats Section
+// - 통계 섹션 래퍼
+// - 4열 그리드 레이아웃
+// ===========================
+
+.stats-section {
+  padding: $section-padding-y 0;
+  background-color: $color-background-secondary;
+
+  @media (min-width: $container-lg) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-12;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3;
+    list-style: none;
+
+    @media (min-width: 360px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $card-gap;
+    }
+
+    @media (min-width: $container-md) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: $card-gap-lg;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+}
+
+// ===========================
+// Stat Card
+// - 통계 카드 컴포넌트
+// - 숫자 카운트업 애니메이션 포함
+// - 정사각형 비율 + 호버 효과
+// ===========================
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: $space-5 $space-4;
+  text-align: center;
+  background-color: $color-surface;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-xl;
+  transition: border-color $transition-base, box-shadow $transition-base, transform $transition-base;
+
+  @media (min-width: 360px) {
+    aspect-ratio: 1 / 1;
+    padding: $card-padding-lg;
+  }
+
+  &:hover {
+    border-color: $primary-300;
+    box-shadow: 0 8px 24px rgba($primary-500, 0.12);
+    transform: translateY(-4px);
+
+    .stat-card__value {
+      color: $primary-700;
+    }
+  }
+
+  // 통계 수치
+  &__value {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: $primary-600;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: color $transition-base;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-4xl;
+    }
+  }
+
+  // 접미사 (%, +, 명 등)
+  &__suffix {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $primary-400;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // 레이블
+  &__label {
+    margin-top: $space-3;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    flex-shrink: 0;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-base;
+    }
+  }
+
+  // 설명
+  &__description {
+    margin-top: $space-2;
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// ===========================
+// Core Values Section
+// - 핵심가치 섹션
+// - 3열 그리드 + 어두운 배경
+// ===========================
+
+.core-values {
+  padding: $section-padding-y 0;
+  background: linear-gradient(135deg, $neutral-900 0%, $neutral-800 100%);
+
+  @media (min-width: $container-lg) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-12;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-3;
+    list-style: none;
+
+    @media (min-width: $container-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $container-lg) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: $space-4;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+}
+
+// ===========================
+// Value Card
+// - 핵심가치 카드
+// - 어두운 배경에서 사용되는 투명 카드
+// ===========================
+
+.value-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-4;
+  width: 100%;
+  padding: $space-6;
+  background: transparent;
+  border-radius: $radius-xl;
+  border: 1px solid rgba($neutral-0, 0.15);
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  @media (min-width: $container-md) {
+    gap: $space-5;
+    padding: $space-8;
+  }
+
+  &:hover {
+    border-color: rgba($primary-400, 0.3);
+    background: rgba($neutral-0, 0.05);
+  }
+
+  // 아이콘 영역
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    background: transparent !important;
+    color: $neutral-0;
+
+    @media (min-width: $container-md) {
+      width: 80px;
+      height: 80px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+  }
+
+  // 콘텐츠 영역
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+
+    @media (min-width: $container-md) {
+      font-size: 26px;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-sm;
+    color: $neutral-400;
+    line-height: $line-height-relaxed;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// ===========================
+// About Partners Section
+// - 파트너사/협력사 로고 섹션
+// - 6열 그리드 + 그레이스케일 효과
+// ===========================
+
+.about-partners {
+  padding: $section-padding-y 0;
+  background-color: $color-background;
+
+  @media (min-width: $container-lg) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-12;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $card-gap;
+    list-style: none;
+
+    @media (min-width: $container-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $container-lg) {
+      grid-template-columns: repeat(6, 1fr);
+      gap: $card-gap-lg;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // 링크 및 로고 래퍼
+  &__link,
+  &__logo-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    padding: $space-4;
+    background-color: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-lg;
+    transition: border-color $transition-base, box-shadow $transition-base;
+
+    &:hover {
+      border-color: $primary-200;
+      box-shadow: $shadow-sm;
+    }
+
+    @media (min-width: $container-md) {
+      height: 100px;
+    }
+  }
+
+  // 파트너 로고 (기본 그레이스케일)
+  &__logo {
+    max-width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter $transition-base, opacity $transition-base;
+
+    @media (min-width: $container-md) {
+      max-height: 56px;
+    }
+  }
+
+  // 호버 시 컬러로 전환
+  &__link:hover &__logo,
+  &__logo-wrap:hover &__logo {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}

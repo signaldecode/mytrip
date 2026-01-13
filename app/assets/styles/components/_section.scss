@@ -1,0 +1,431 @@
+/**
+ * Section Components
+ * - 섹션 레이아웃 공통 스타일
+ * - .section: 기본 섹션 래퍼
+ * - .section-header: 섹션 헤더 (타이틀, 서브타이틀)
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// Section Base
+// ===========================
+
+.section {
+  padding: $section-padding-y 0;
+
+  @media (min-width: $container-md) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  // Background variants
+  &--bg-primary {
+    background-color: $color-background;
+  }
+
+  &--bg-secondary {
+    background-color: $color-background-secondary;
+  }
+
+  &--bg-dark {
+    background: linear-gradient(135deg, $primary-600 0%, $primary-800 50%, $neutral-900 100%);
+  }
+}
+
+// ===========================
+// Section Header
+// ===========================
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-10;
+  text-align: center;
+
+  @media (min-width: $container-md) {
+    margin-bottom: $space-12;
+  }
+
+  &--left {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+
+    // Underline decoration
+    &--underline::after {
+      content: '';
+      position: absolute;
+      bottom: -$space-2;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background-color: $primary-500;
+      border-radius: $radius-full;
+
+      @media (min-width: $container-md) {
+        width: 80px;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    max-width: 600px;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // Light variant (for dark backgrounds)
+  &--light &__title {
+    color: $neutral-0;
+  }
+
+  &--light &__subtitle {
+    color: $primary-100;
+  }
+}
+
+// ===========================
+// Grid Layouts
+// ===========================
+
+.grid {
+  display: grid;
+  gap: $space-4;
+  list-style: none;
+
+  @media (min-width: $container-md) {
+    gap: $space-6;
+  }
+
+  // 2 columns
+  &--2 {
+    grid-template-columns: 1fr;
+
+    @media (min-width: $container-md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // 3 columns
+  &--3 {
+    grid-template-columns: 1fr;
+
+    @media (min-width: $container-sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $container-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  // 4 columns
+  &--4 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: $container-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $container-lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // 6 columns (for value cards)
+  &--6 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: $container-sm) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $container-lg) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+// ===========================
+// Category Tabs
+// ===========================
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-2;
+  margin-bottom: $space-8;
+
+  @media (min-width: $container-md) {
+    gap: $space-3;
+    margin-bottom: $space-10;
+  }
+
+  &__item {
+    padding: $space-2 $space-4;
+    font-family: inherit;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    background-color: transparent;
+    border: 1px solid $color-border;
+    border-radius: $radius-full;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    @media (min-width: $container-md) {
+      padding: $space-2-5 $space-5;
+    }
+
+    &:hover {
+      color: $primary-600;
+      border-color: $primary-300;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-border-focus;
+      outline-offset: 2px;
+    }
+
+    &--active {
+      color: $neutral-0;
+      background-color: $primary-500;
+      border-color: $primary-500;
+
+      &:hover {
+        color: $neutral-0;
+        background-color: $primary-600;
+        border-color: $primary-600;
+      }
+    }
+  }
+}
+
+// ===========================
+// Section Badge (small label)
+// ===========================
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-1-5 $space-4;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $primary-600;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  background-color: transparent;
+  border: 1px solid $primary-300;
+  border-radius: $radius-full;
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: $primary-500;
+    border-radius: $radius-full;
+  }
+
+  &--default {
+    // default styles already applied
+  }
+
+  &--light {
+    color: $primary-200;
+    border-color: rgba($neutral-0, 0.3);
+
+    &::before {
+      background-color: $primary-300;
+    }
+  }
+}
+
+// ===========================
+// Contact Section
+// ===========================
+
+.contact-section {
+  padding: $section-padding-y 0;
+  background-color: $neutral-900;
+
+  &__container {
+    max-width: $container-xl;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+
+    @media (min-width: $container-md) {
+      padding: 0 $container-padding-md;
+    }
+
+    @media (min-width: $container-lg) {
+      padding: 0 $container-padding-lg;
+    }
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: $space-10;
+  }
+
+  &__title {
+    margin-top: $space-3;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $neutral-0;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__description {
+    margin-top: $space-3;
+    font-size: $font-size-base;
+    color: $neutral-400;
+    line-height: $line-height-relaxed;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $space-4;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @media (min-width: $container-md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+}
+
+// ===========================
+// Filter Sidebar (Q&A page)
+// ===========================
+
+.filter-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+
+  &__search-wrap {
+    position: relative;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: $space-4;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $color-text-tertiary;
+    pointer-events: none;
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: $space-3 $space-4;
+    padding-left: calc($space-4 + 20px + $space-2);
+    font-family: inherit;
+    font-size: $font-size-base;
+    color: $color-text-primary;
+    background-color: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-lg;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: $color-text-tertiary;
+    }
+
+    &:hover {
+      border-color: $primary-300;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.15);
+    }
+  }
+
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-tertiary;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: $space-3;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $space-3 $space-4;
+    font-family: inherit;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    border-radius: $radius-lg;
+    cursor: pointer;
+    transition: background-color $transition-fast, color $transition-fast;
+
+    &:hover {
+      background-color: $neutral-100;
+      color: $color-text-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-border-focus;
+      outline-offset: -2px;
+    }
+
+    &--active {
+      background-color: $primary-50;
+      color: $primary-700;
+      font-weight: $font-weight-semibold;
+
+      &:hover {
+        background-color: $primary-100;
+        color: $primary-700;
+      }
+    }
+  }
+}

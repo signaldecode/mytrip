@@ -1,0 +1,30 @@
+{
+  "_desc": "강의 페이지 전용 설정 - 실제 강의 데이터는 courses.json 참조",
+  "meta": {
+    "title": "강의 목록 | 에듀테크 아카데미",
+    "description": "실무 중심의 다양한 IT 강의를 만나보세요. 기획, 디자인, 프론트엔드, 백엔드, AI, 블록체인, 데이터 분야의 전문 강좌."
+  },
+  "hero": {
+    "title": "당신의 성장을 위한\n최고의 강의",
+    "description": "현직 전문가가 직접 설계한 실무 중심 커리큘럼으로 빠르게 성장하세요.",
+    "backgroundImage": {
+      "src": "/images/courses-hero-bg.jpg",
+      "alt": "강의실에서 수업을 듣는 학생들"
+    },
+    "ariaLabel": "강의 페이지 히어로 섹션"
+  },
+  "courseList": {
+    "_desc": "강의 목록 섹션 설정",
+    "title": "전체 강의",
+    "emptyMessage": "해당 카테고리에 강의가 없습니다.",
+    "ariaLabel": "강의 목록 섹션"
+  },
+  "instructors": {
+    "_desc": "강사 섹션 설정 - 표시할 강사 ID 목록",
+    "badge": "강사진",
+    "title": "최고의 전문가에게 배우세요",
+    "description": "현업에서 활약하는 전문가들이 직접 가르칩니다",
+    "ariaLabel": "강사진 소개 섹션",
+    "displayIds": ["instructor-1", "instructor-2", "instructor-3", "instructor-4"]
+  }
+}

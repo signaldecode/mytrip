@@ -1,0 +1,127 @@
+/**
+ * Form Components
+ * - 폼 관련 스타일
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// ===========================
+// Form Group
+// ===========================
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $form-field-gap;
+}
+
+// ===========================
+// Form Label
+// ===========================
+
+.form-label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+
+  &__required {
+    color: $error-500;
+    margin-left: $space-0-5;
+  }
+}
+
+// ===========================
+// Form Inputs
+// ===========================
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: $input-padding-y $input-padding-x;
+  font-family: inherit;
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: border-color $transition-fast, box-shadow $transition-fast;
+
+  &::placeholder {
+    color: $color-text-tertiary;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-focus;
+    box-shadow: 0 0 0 3px rgba($primary-500, 0.1);
+  }
+
+  &:disabled {
+    background-color: $neutral-100;
+    cursor: not-allowed;
+  }
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+// ===========================
+// Form Help / Error Text
+// ===========================
+
+.form-help {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.form-error {
+  font-size: $font-size-xs;
+  color: $error-600;
+}
+
+// ===========================
+// Checkbox
+// ===========================
+
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-2;
+
+  input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: $primary-600;
+    cursor: pointer;
+  }
+
+  label {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    cursor: pointer;
+  }
+}
+
+// ===========================
+// Star Rating
+// ===========================
+
+.star-rating {
+  display: inline-flex;
+  gap: $space-0-5;
+
+  &__star {
+    color: $color-star-empty;
+    font-size: $font-size-lg;
+
+    &--filled {
+      color: $color-star-filled;
+    }
+  }
+}

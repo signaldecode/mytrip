@@ -1,0 +1,82 @@
+/**
+ * Button Component
+ * - 버튼 스타일
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: $space-3 $space-6;
+  font-family: inherit;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-none;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: $radius-lg;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &:focus-visible {
+    outline: 2px solid $color-border-focus;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  // ===========================
+  // Variants
+  // ===========================
+
+  &--primary {
+    background-color: $primary-600;
+    color: $color-text-inverse;
+
+    &:hover:not(:disabled) {
+      background-color: $primary-700;
+    }
+  }
+
+  &--secondary {
+    background-color: $neutral-100;
+    color: $color-text-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $neutral-200;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: $color-border;
+    color: $color-text-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $neutral-50;
+      border-color: $neutral-300;
+    }
+  }
+
+  // ===========================
+  // Sizes
+  // ===========================
+
+  &--sm {
+    padding: $space-2 $space-4;
+    font-size: $font-size-sm;
+  }
+
+  &--lg {
+    padding: $space-4 $space-8;
+    font-size: $font-size-lg;
+  }
+}

@@ -1,0 +1,219 @@
+/**
+ * Partners Section
+ * - 파트너사 로고 슬라이딩 섹션
+ * - .partners-section--default: 기본 배경
+ * - .partners-section--brand: 브랜드 컬러 배경
+ */
+
+@use '../tokens/colors' as *;
+@use '../tokens/typography' as *;
+@use '../tokens/spacing' as *;
+
+// 슬라이드 애니메이션
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-section {
+  padding: $section-padding-y 0;
+  overflow: hidden;
+
+  @media (min-width: $container-lg) {
+    padding: $section-padding-y-lg 0;
+  }
+
+  // ===========================
+  // Variants
+  // ===========================
+
+  &--default {
+    background-color: $color-background;
+  }
+
+  &--brand {
+    background: linear-gradient(135deg, $primary-600 0%, $primary-700 100%);
+
+    .partners-section__title,
+    .partners-section__subtitle {
+      color: $neutral-0;
+    }
+
+    .partners-section__logo-wrap {
+      background-color: rgba($neutral-0, 0.95);
+      border-color: rgba($neutral-0, 0.2);
+
+      &:hover {
+        background-color: $neutral-0;
+        border-color: rgba($neutral-0, 0.4);
+        box-shadow: 0 8px 32px rgba($neutral-900, 0.15);
+      }
+    }
+
+    .partners-section__logo {
+      filter: none;
+      opacity: 0.8;
+    }
+
+    .partners-section__logo-wrap:hover .partners-section__logo {
+      opacity: 1;
+    }
+  }
+
+  // ===========================
+  // Header
+  // ===========================
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: $space-12;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-primary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-3xl;
+    }
+  }
+
+  &__subtitle {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+
+    @media (min-width: $container-md) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  // ===========================
+  // Slider
+  // ===========================
+
+  &__slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    // 좌우 그라데이션 페이드
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      z-index: 2;
+      pointer-events: none;
+
+      @media (min-width: $container-md) {
+        width: 120px;
+      }
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  // 기본 배경 그라데이션
+  &--default &__slider {
+    &::before {
+      background: linear-gradient(to right, $color-background, transparent);
+    }
+    &::after {
+      background: linear-gradient(to left, $color-background, transparent);
+    }
+  }
+
+  // 브랜드 배경 그라데이션
+  &--brand &__slider {
+    &::before {
+      background: linear-gradient(to right, $primary-600, transparent);
+    }
+    &::after {
+      background: linear-gradient(to left, $primary-700, transparent);
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: $space-6;
+    width: max-content;
+    animation: slide 30s linear infinite;
+    padding: $space-4;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    @media (min-width: $container-md) {
+      gap: $space-8;
+    }
+  }
+
+  &__item {
+    flex-shrink: 0;
+  }
+
+  &__logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 80px;
+    padding: $space-4;
+    background-color: $color-surface;
+    border: 1px solid $color-border-light;
+    border-radius: $radius-lg;
+    transition: all $transition-base;
+
+    @media (min-width: $container-md) {
+      width: 180px;
+      height: 100px;
+    }
+
+    &:hover {
+      border-color: $primary-200;
+      box-shadow: $shadow-md;
+      transform: translateY(-4px);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-border-focus;
+      outline-offset: 2px;
+    }
+  }
+
+  &__logo {
+    max-width: 100%;
+    max-height: 48px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all $transition-base;
+
+    @media (min-width: $container-md) {
+      max-height: 56px;
+    }
+  }
+
+  &__logo-wrap:hover &__logo {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+}
