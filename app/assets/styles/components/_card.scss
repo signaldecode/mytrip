@@ -517,7 +517,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 280px;
+  min-height: 430px;
   background-color: $color-surface;
   border: 1px solid $neutral-400 !important;
   border-radius: $radius-xl;
@@ -527,7 +527,7 @@
 
   @media (min-width: $container-md) {
     flex-direction: row;
-    height: 200px;
+    min-height: 200px;
   }
 
   &:hover {
@@ -569,10 +569,10 @@
     flex-direction: column;
     flex: 1;
     padding: $space-4;
-    overflow: hidden;
 
     @media (min-width: $container-md) {
       padding: $space-5;
+      overflow: hidden;
     }
 
     @media (min-width: $container-lg) {
