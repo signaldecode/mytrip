@@ -2,7 +2,7 @@
  * Hero Components
  * - 히어로 섹션 스타일
  * - .hero--main: 메인 페이지 히어로 (배경 이미지)
- * - .hero--page: 서브 페이지 히어로 (그라데이션 배경)
+ * - .hero--page: 서브 페이지 히어로 (밝은 배경)
  */
 
 @use '../tokens/colors' as *;
@@ -41,7 +41,6 @@
   &__title {
     font-weight: $font-weight-bold;
     line-height: $line-height-tight;
-    color: $neutral-0;
     white-space: pre-line;
   }
 
@@ -59,6 +58,7 @@
 
 .hero--main {
   min-height: 600px;
+  background-color: $neutral-800;
 
   @media (min-width: $container-md) {
     min-height: 700px;
@@ -71,14 +71,14 @@
     object-fit: cover;
   }
 
-  // Dark overlay
+  // Light overlay (사진 가독성 향상)
   .hero__overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba($neutral-900, 0.6),
-      rgba($neutral-900, 0.8)
+      rgba($neutral-0, 0.3),
+      rgba($neutral-0, 0.5)
     );
   }
 
@@ -92,6 +92,7 @@
   .hero__title {
     font-size: $heading-2-size;
     margin-bottom: $space-4;
+    color: $neutral-900;
 
     @media (min-width: $container-md) {
       font-size: $heading-1-size;
@@ -105,7 +106,7 @@
   // Subtitle
   .hero__subtitle {
     font-size: $body-lg-size;
-    color: $neutral-200;
+    color: $neutral-600;
     margin-bottom: $space-8;
 
     @media (min-width: $container-md) {
@@ -139,17 +140,18 @@
 // ===========================
 
 .hero--page {
-  min-height: 320px;
+  min-height: 280px;
+  background-color: $primary-50;
 
   @media (min-width: $container-md) {
-    min-height: 400px;
+    min-height: 320px;
   }
 
-  // Gradient background
+  // Gradient background (light)
   .hero__gradient {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, $primary-600 0%, $primary-800 50%, $neutral-900 100%);
+    background: linear-gradient(135deg, $primary-50 0%, $primary-100 100%);
   }
 
   // Content
@@ -167,6 +169,7 @@
   // Title
   .hero__title {
     font-size: $font-size-2xl;
+    color: $neutral-900;
 
     @media (min-width: $container-md) {
       font-size: $font-size-4xl;
@@ -180,7 +183,7 @@
   // Description
   .hero__description {
     font-size: $font-size-base;
-    color: $primary-100;
+    color: $neutral-600;
     max-width: 560px;
 
     @media (min-width: $container-md) {

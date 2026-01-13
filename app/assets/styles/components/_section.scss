@@ -88,7 +88,7 @@
     font-size: $font-size-base;
     color: $color-text-secondary;
     line-height: $line-height-relaxed;
-    max-width: 600px;
+    max-width: 100%;
 
     @media (min-width: $container-md) {
       font-size: $font-size-lg;
@@ -188,9 +188,9 @@
     font-family: inherit;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-text-secondary;
+    color: $neutral-600;
     background-color: transparent;
-    border: 1px solid $color-border;
+    border: 1px solid $neutral-300;
     border-radius: $radius-full;
     cursor: pointer;
     transition: all $transition-fast;
@@ -254,11 +254,11 @@
   }
 
   &--light {
-    color: $primary-200;
-    border-color: rgba($neutral-0, 0.3);
+    color: $neutral-0;
+    border-color: $neutral-0;
 
     &::before {
-      background-color: $primary-300;
+      background-color: $neutral-0;
     }
   }
 }

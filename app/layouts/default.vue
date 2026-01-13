@@ -5,13 +5,18 @@ import AppFooter from '~/components/common/AppFooter.vue'
 import ContactSection from '~/components/common/ContactSection.vue'
 
 const data = mainData
+const route = useRoute()
+
+const showContactSection = computed(() => {
+  return route.path !== '/contact'
+})
 </script>
 
 <template>
   <div class="layout-default">
     <AppHeader :data="data" />
     <slot />
-    <ContactSection :data="data.about.contact" />
+    <ContactSection v-if="showContactSection" :data="data.about.contact" />
     <AppFooter :data="data" />
   </div>
 </template>

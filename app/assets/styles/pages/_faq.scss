@@ -36,7 +36,7 @@
   &__gradient {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, $primary-600 0%, $primary-800 50%, $neutral-900 100%);
+    background: $primary-400;
   }
 
   &__content {
@@ -60,7 +60,7 @@
     font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
     line-height: $line-height-tight;
-    color: $neutral-0;
+    color: $neutral-900;
     white-space: pre-line;
 
     @media (min-width: $container-md) {
@@ -75,7 +75,7 @@
   &__description {
     font-size: $font-size-base;
     line-height: $line-height-relaxed;
-    color: $primary-100;
+    color: $neutral-600;
     max-width: 560px;
 
     @media (min-width: $container-md) {
@@ -102,7 +102,7 @@
     left: $space-4;
     top: 50%;
     transform: translateY(-50%);
-    color: $color-text-tertiary;
+    color: $neutral-400;
     pointer-events: none;
   }
 
@@ -112,14 +112,14 @@
     padding-left: calc($space-4 + 20px + $space-2);
     font-family: inherit;
     font-size: $font-size-base;
-    color: $color-text-primary;
-    background-color: $color-surface;
-    border: 1px solid $color-border-light;
+    color: $neutral-900;
+    background-color: $neutral-0;
+    border: 1px solid $neutral-200;
     border-radius: $radius-lg;
     transition: border-color $transition-fast, box-shadow $transition-fast;
 
     &::placeholder {
-      color: $color-text-tertiary;
+      color: $neutral-400;
     }
 
     &:hover {
@@ -136,7 +136,7 @@
   &__title {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
-    color: $color-text-tertiary;
+    color: $neutral-500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: $space-3;
@@ -157,7 +157,7 @@
     font-family: inherit;
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-text-secondary;
+    color: $neutral-600;
     text-align: left;
     background-color: transparent;
     border: none;
@@ -167,11 +167,11 @@
 
     &:hover {
       background-color: $neutral-100;
-      color: $color-text-primary;
+      color: $neutral-900;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-border-focus;
+      outline: 2px solid $primary-500;
       outline-offset: -2px;
     }
 
@@ -194,7 +194,7 @@
 
 .qna-list-section {
   padding: $space-12 0;
-  background-color: $neutral-50;
+  background-color: $neutral-0;
   min-height: 60vh;
 
   @media (min-width: $container-md) {
@@ -205,46 +205,76 @@
     display: flex;
     flex-direction: column;
     gap: $space-6;
+  }
 
-    @media (min-width: $container-lg) {
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: $space-4;
+
+    @media (min-width: $container-md) {
       flex-direction: row;
-      gap: $space-8;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
-  &__sidebar {
+  &__search {
     width: 100%;
-    background-color: $color-surface;
-    border-radius: $radius-xl;
-    padding: $space-5;
 
-    @media (min-width: $container-lg) {
-      width: 30%;
+    @media (min-width: $container-md) {
+      width: 280px;
       flex-shrink: 0;
-      position: sticky;
-      top: $space-24;
-      height: fit-content;
-      max-height: calc(100vh - $space-32);
-      overflow-y: auto;
+    }
+  }
+
+  &__search-wrap {
+    position: relative;
+  }
+
+  &__search-icon {
+    position: absolute;
+    left: $space-4;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $neutral-400;
+    pointer-events: none;
+  }
+
+  &__search-input {
+    width: 100%;
+    padding: $space-3 $space-4;
+    padding-left: calc($space-4 + 20px + $space-2);
+    font-family: inherit;
+    font-size: $font-size-base;
+    color: $neutral-900;
+    background-color: $neutral-0;
+    border: 1px solid $neutral-200;
+    border-radius: $radius-lg;
+    transition: border-color $transition-fast, box-shadow $transition-fast;
+
+    &::placeholder {
+      color: $neutral-400;
+    }
+
+    &:hover {
+      border-color: $primary-300;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-500;
+      box-shadow: 0 0 0 3px rgba($primary-500, 0.15);
     }
   }
 
   &__content {
-    flex: 1;
-    min-width: 0;
-
-    @media (min-width: $container-lg) {
-      width: 70%;
-    }
-  }
-
-  &__header {
-    margin-bottom: $space-4;
+    width: 100%;
   }
 
   &__result-count {
     font-size: $font-size-sm;
-    color: $color-text-tertiary;
+    color: $neutral-500;
 
     strong {
       font-weight: $font-weight-semibold;
@@ -264,13 +294,14 @@
     align-items: center;
     justify-content: center;
     padding: $space-16 $space-4;
-    background-color: $color-surface;
+    background-color: $neutral-0;
+    border: 1px solid $neutral-200;
     border-radius: $radius-xl;
     text-align: center;
   }
 
   &__empty-icon {
-    color: $color-text-tertiary;
+    color: $neutral-400;
     margin-bottom: $space-4;
     opacity: 0.5;
   }
@@ -278,13 +309,13 @@
   &__empty-text {
     font-size: $font-size-lg;
     font-weight: $font-weight-medium;
-    color: $color-text-secondary;
+    color: $neutral-600;
     margin-bottom: $space-2;
   }
 
   &__empty-hint {
     font-size: $font-size-sm;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 }
 
@@ -293,8 +324,8 @@
 // ===========================
 
 .qna-accordion {
-  background-color: $color-surface;
-  border: 1px solid $color-border-light;
+  background-color: $neutral-0;
+  border: 1px solid $neutral-200;
   border-radius: $radius-xl;
   overflow: hidden;
   transition: border-color $transition-base, box-shadow $transition-base;
@@ -315,7 +346,7 @@
     gap: $space-4;
     width: 100%;
     padding: $space-4;
-    background-color: transparent;
+    background-color: $neutral-0;
     border: none;
     cursor: pointer;
     text-align: left;
@@ -326,11 +357,11 @@
     }
 
     &:hover {
-      background-color: $neutral-50;
+      background-color: $neutral-0;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-border-focus;
+      outline: 2px solid $primary-500;
       outline-offset: -2px;
     }
   }
@@ -388,7 +419,7 @@
   &__title {
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: $neutral-900;
     line-height: $line-height-snug;
 
     @media (min-width: $container-md) {
@@ -419,7 +450,7 @@
     justify-content: center;
     width: 24px;
     height: 24px;
-    color: $color-text-tertiary;
+    color: $neutral-400;
     transition: transform $transition-base, color $transition-base;
     flex-shrink: 0;
 
@@ -445,7 +476,7 @@
 
   &__question {
     padding: 0 $space-4 $space-4;
-    border-bottom: 1px solid $color-border-light;
+    border-bottom: 1px solid $neutral-200;
 
     @media (min-width: $container-md) {
       padding: 0 $space-5 $space-5;
@@ -463,17 +494,17 @@
   &__author {
     font-size: $font-size-sm;
     font-weight: $font-weight-medium;
-    color: $color-text-secondary;
+    color: $neutral-700;
   }
 
   &__date {
     font-size: $font-size-xs;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 
   &__question-content {
     font-size: $font-size-sm;
-    color: $color-text-secondary;
+    color: $neutral-600;
     line-height: $line-height-relaxed;
 
     @media (min-width: $container-md) {
@@ -483,7 +514,7 @@
 
   &__answer {
     padding: $space-4;
-    background-color: $neutral-50;
+    background-color: $neutral-0;
 
     @media (min-width: $container-md) {
       padding: $space-5;
@@ -506,7 +537,7 @@
   &__answer-author {
     font-size: $font-size-sm;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: $neutral-900;
 
     @media (min-width: $container-md) {
       font-size: $font-size-base;
@@ -515,12 +546,12 @@
 
   &__answer-date {
     font-size: $font-size-xs;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 
   &__answer-content {
     font-size: $font-size-sm;
-    color: $color-text-secondary;
+    color: $neutral-600;
     line-height: $line-height-relaxed;
     padding-left: calc(32px + $space-3);
 
@@ -530,7 +561,7 @@
 
     strong {
       font-weight: $font-weight-semibold;
-      color: $color-text-primary;
+      color: $neutral-900;
     }
 
     code {

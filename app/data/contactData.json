@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "문의하기 | 에듀테크 아카데미",
+    "title": "문의하기 | 마이트립",
     "description": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요. 빠른 시일 내에 답변드리겠습니다.",
     "keywords": "문의하기, 상담, 강의문의, 결제문의, 제휴문의",
-    "ogTitle": "문의하기 | 에듀테크 아카데미",
+    "ogTitle": "문의하기 | 마이트립",
     "ogDescription": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요."
   },
   "hero": {
@@ -39,7 +39,7 @@
         "label": "연락처",
         "type": "tel",
         "placeholder": "010-0000-0000",
-        "required": false
+        "required": true
       },
       {
         "id": "contact-type",
@@ -49,7 +49,7 @@
         "required": true,
         "options": [
           { "value": "", "label": "문의 유형을 선택해주세요" },
-          { "value": "course", "label": "강의 관련 문의" },
+          { "value": "course", "label": "여행 관련 문의" },
           { "value": "payment", "label": "결제/환불 문의" },
           { "value": "partnership", "label": "제휴/협업 문의" },
           { "value": "technical", "label": "기술 지원 문의" },
@@ -88,15 +88,15 @@
         "id": "info-email",
         "icon": "mail",
         "label": "이메일",
-        "value": "contact@edutech.example.com",
-        "link": "mailto:contact@edutech.example.com"
+        "value": "hello@mytrip.co.kr",
+        "link": "mailto:hello@mytrip.co.kr"
       },
       {
         "id": "info-phone",
         "icon": "phone",
         "label": "전화",
-        "value": "02-1234-5678",
-        "link": "tel:02-1234-5678"
+        "value": "02-777-8282",
+        "link": "tel:02-777-8282"
       },
       {
         "id": "info-hours",

@@ -1,29 +1,29 @@
 {
   "_desc": "후기 페이지 전용 설정 - 실제 후기 데이터는 reviews.json 참조",
   "meta": {
-    "title": "수강생 후기 | 에듀테크 아카데미",
-    "description": "에듀테크 아카데미 수강생들의 생생한 후기를 확인해보세요.",
-    "ogTitle": "수강생 후기 | 에듀테크 아카데미",
-    "ogDescription": "실제 수강생들의 솔직한 강의 후기와 성장 스토리"
+    "title": "여행후기 | 마이트립",
+    "description": "직접 공유한 생생한 여행 현장과 후기",
+    "ogTitle": "여행후기 | 마이트립",
+    "ogDescription": "직접 공유한 생생한 여행 현장과 후기"
   },
   "hero": {
     "badge": "REVIEWS",
-    "title": "수강생 후기",
-    "description": "에듀테크 아카데미와 함께 성장한 수강생들의 생생한 이야기를 들어보세요.",
-    "ariaLabel": "수강생 후기 페이지 소개"
+    "title": "여행후기",
+    "description": "생생한 여행의 후기를 확인해보세요.",
+    "ariaLabel": "여행 후기 페이지 소개"
   },
   "photoReviews": {
     "_desc": "포토 후기 섹션 설정 - hasPhoto: true인 후기만 표시",
     "badge": "PHOTO REVIEWS",
     "title": "포토 후기",
-    "description": "수강생들이 직접 공유한 생생한 학습 현장과 후기",
+    "description": "여행자들이 직접 공유한 생생한 여행 현장과 후기",
     "ariaLabel": "포토 후기 섹션",
     "maxDisplay": 6
   },
   "moreReviews": {
     "_desc": "더 많은 후기 섹션 설정",
     "title": "더 많은 후기 보기",
-    "description": "카테고리별로 다양한 수강 후기를 확인해보세요",
+    "description": "카테고리별로 다양한 여행 후기를 확인해보세요",
     "ariaLabel": "더 많은 후기 섹션",
     "pageSize": 9
   }

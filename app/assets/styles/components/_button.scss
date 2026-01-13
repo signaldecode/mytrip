@@ -39,7 +39,7 @@
 
   &--primary {
     background-color: $primary-600;
-    color: $color-text-inverse;
+    color: $neutral-0;
 
     &:hover:not(:disabled) {
       background-color: $primary-700;

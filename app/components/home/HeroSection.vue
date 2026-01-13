@@ -47,14 +47,14 @@ onMounted(() => {
     <div class="hero-section__content container">
       <div class="hero-section__badge">
         <span class="hero-section__badge-dot" />
-        실무 중심 교육 플랫폼
+        나만의 특별한 여행
       </div>
       <h1 class="hero-section__title">
         {{ props.data.title }}
       </h1>
-      <p class="hero-section__subtitle">
+      <!-- <p class="hero-section__subtitle">
         {{ props.data.subtitle }}
-      </p>
+      </p> -->
       <div class="hero-section__cta-group">
         <NuxtLink
           v-for="(button, index) in props.data.ctaButtons"
@@ -78,26 +78,26 @@ onMounted(() => {
       <!-- Stats preview -->
       <div class="hero-section__stats">
         <div class="hero-section__stat">
-          <span class="hero-section__stat-value">15,000+</span>
-          <span class="hero-section__stat-label">수강생</span>
+          <span class="hero-section__stat-value">50,000+</span>
+          <span class="hero-section__stat-label">누적 여행객</span>
         </div>
         <div class="hero-section__stat-divider" />
         <div class="hero-section__stat">
-          <span class="hero-section__stat-value">50+</span>
-          <span class="hero-section__stat-label">강좌</span>
+          <span class="hero-section__stat-value">12,000+</span>
+          <span class="hero-section__stat-label">후기</span>
         </div>
         <div class="hero-section__stat-divider" />
         <div class="hero-section__stat">
-          <span class="hero-section__stat-value">4.9</span>
-          <span class="hero-section__stat-label">만족도</span>
+          <span class="hero-section__stat-value">87%</span>
+          <span class="hero-section__stat-label">재방문율</span>
         </div>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="hero-section__scroll" aria-hidden="true">
+    <!-- <div class="hero-section__scroll" aria-hidden="true">
       <span class="hero-section__scroll-text">Scroll</span>
       <span class="hero-section__scroll-line" />
-    </div>
+    </div> -->
   </section>
 </template>

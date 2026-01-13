@@ -22,7 +22,7 @@ const filteredReviews = computed(() => {
     return props.data.list
   }
   return props.data.list.filter(
-    review => review.courseCategory === activeCategory.value
+    review => review.category === activeCategory.value
   )
 })
 

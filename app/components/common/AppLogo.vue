@@ -12,6 +12,6 @@ const props = defineProps({
     class="app-logo"
     :class="`app-logo--${props.variant}`"
   >
-    EduTech
+    MyTrip.com
   </span>
 </template>

@@ -27,7 +27,7 @@ const props = defineProps({
           <li
             v-for="tag in props.course.tags"
             :key="tag"
-            class="course-card__tag"
+            class="chip"
           >
             {{ tag }}
           </li>

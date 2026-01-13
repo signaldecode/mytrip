@@ -1,338 +1,441 @@
 {
-  "_desc": "강의 마스터 데이터 - 모든 페이지에서 이 데이터를 단일 소스로 참조",
+  "_desc": "여행 상품 마스터 데이터 - 모든 페이지에서 이 데이터를 단일 소스로 참조",
   "list": [
     {
-      "id": "figma-master",
-      "title": "Figma 마스터 클래스",
-      "description": "피그마 기초부터 디자인 시스템까지, 실무에서 바로 쓰는 UI/UX 디자인",
-      "category": "design",
-      "tags": ["Figma", "UI/UX", "디자인시스템"],
-      "thumbnail": { "src": "/images/courses/figma.jpg", "alt": "Figma 마스터 클래스 썸네일" },
-      "instructorId": "instructor-1",
-      "link": "/courses/figma-master",
-      "ariaLabel": "Figma 마스터 클래스 상세 보기",
+      "id": "osaka-4d3n",
+      "title": "오사카 미식기행 4일",
+      "description": "도톤보리, 신사이바시, 유니버설 스튜디오까지! 오사카의 모든 것을 즐기는 알찬 여행",
+      "category": "japan",
+      "tags": ["미식여행", "가족여행", "테마파크"],
+      "thumbnail": { "src": "/images/spots/관광지1.jpg", "alt": "오사카 도톤보리 야경" },
+      "guideId": "guide-1",
+      "link": "/courses/osaka-4d3n",
+      "ariaLabel": "오사카 미식기행 4일 상세 보기",
       "detail": {
-        "subtitle": "현업 디자이너가 알려주는 실무 피그마 활용법",
-        "level": "초급 ~ 중급",
-        "duration": "총 24시간 (32강)",
-        "price": "89,000원",
-        "originalPrice": "129,000원",
+        "subtitle": "오사카의 맛과 멋을 동시에",
+        "duration": "3박 4일",
+        "groupSize": "최소 2인 ~ 최대 20인",
+        "price": "890,000원",
+        "originalPrice": "1,190,000원",
         "rating": 4.9,
         "reviewCount": 324,
-        "studentCount": 1847,
-        "updatedAt": "2024.12",
-        "features": ["평생 소장 가능", "수료증 발급", "실습 파일 제공", "Q&A 게시판"],
-        "whatYouLearn": [
-          "Figma 인터페이스와 핵심 기능 완벽 이해",
-          "Auto Layout으로 반응형 디자인 구현",
-          "컴포넌트와 Variants로 디자인 시스템 구축",
-          "프로토타이핑과 인터랙션 디자인",
-          "협업 워크플로우와 핸드오프 노하우"
+        "bookingCount": 1847,
+        "departure": "인천국제공항",
+        "airline": "대한항공 / 아시아나항공",
+        "hotel": "4성급 호텔 (조식 포함)",
+        "features": ["왕복 항공권", "3성급 이상 호텔", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "도톤보리에서 오사카 명물 먹방 투어",
+          "오사카성 역사 탐방",
+          "유니버설 스튜디오 재팬 자유 이용권 포함",
+          "신사이바시 쇼핑 자유시간",
+          "현지인 맛집 가이드 투어"
         ],
-        "curriculum": [
+        "itinerary": [
           {
-            "title": "Figma 시작하기",
-            "lessons": [
-              { "title": "Figma 소개 및 설치", "duration": "10분" },
-              { "title": "인터페이스 둘러보기", "duration": "15분" },
-              { "title": "기본 도구 익히기", "duration": "20분" }
+            "day": 1,
+            "title": "인천 → 오사카 도착",
+            "schedule": [
+              { "time": "09:00", "activity": "인천공항 출발" },
+              { "time": "11:00", "activity": "간사이공항 도착" },
+              { "time": "13:00", "activity": "호텔 체크인 및 휴식" },
+              { "time": "18:00", "activity": "도톤보리 야경 투어 & 저녁 식사" }
             ]
           },
           {
-            "title": "레이아웃 마스터하기",
-            "lessons": [
-              { "title": "프레임과 그룹의 차이", "duration": "12분" },
-              { "title": "Auto Layout 기초", "duration": "25분" },
-              { "title": "Auto Layout 심화", "duration": "30분" },
-              { "title": "Constraints 활용법", "duration": "18분" }
+            "day": 2,
+            "title": "오사카 시내 관광",
+            "schedule": [
+              { "time": "09:00", "activity": "호텔 조식" },
+              { "time": "10:00", "activity": "오사카성 관람" },
+              { "time": "12:30", "activity": "구로몬 시장 점심" },
+              { "time": "14:00", "activity": "신사이바시 쇼핑" },
+              { "time": "18:00", "activity": "현지 이자카야 저녁" }
             ]
           },
           {
-            "title": "컴포넌트와 디자인 시스템",
-            "lessons": [
-              { "title": "컴포넌트 만들기", "duration": "20분" },
-              { "title": "Variants 활용하기", "duration": "35분" },
-              { "title": "디자인 토큰 설정", "duration": "25분" },
-              { "title": "라이브러리 관리", "duration": "15분" }
+            "day": 3,
+            "title": "유니버설 스튜디오",
+            "schedule": [
+              { "time": "08:00", "activity": "호텔 조식" },
+              { "time": "09:00", "activity": "유니버설 스튜디오 재팬 (종일)" },
+              { "time": "21:00", "activity": "호텔 복귀" }
+            ]
+          },
+          {
+            "day": 4,
+            "title": "오사카 → 인천",
+            "schedule": [
+              { "time": "08:00", "activity": "호텔 조식 및 체크아웃" },
+              { "time": "10:00", "activity": "간사이공항 이동" },
+              { "time": "13:00", "activity": "간사이공항 출발" },
+              { "time": "15:00", "activity": "인천공항 도착" }
             ]
           }
         ],
-        "requirements": ["디자인 기초 지식 (권장)", "Figma 계정 (무료)"],
-        "targetAudience": [
-          "UI/UX 디자이너로 취업을 준비하는 분",
-          "Figma를 체계적으로 배우고 싶은 현직 디자이너",
-          "디자인 협업이 필요한 기획자/개발자"
-        ]
+        "includes": ["왕복 항공권", "3박 호텔 숙박 (조식 포함)", "유니버설 스튜디오 1일권", "공항 픽업 서비스", "여행자 보험", "전문 한국인 가이드"],
+        "excludes": ["개인 경비", "점심/저녁 식사 (일부)", "선택 관광"],
+        "notice": ["여권 유효기간 6개월 이상 필요", "출발 7일 전 100% 환불 가능"]
       }
     },
     {
-      "id": "vue3-guide",
-      "title": "Vue 3 완벽 가이드",
-      "description": "Composition API와 TypeScript로 배우는 모던 Vue 개발",
-      "category": "frontend",
-      "tags": ["Vue", "TypeScript", "Composition API"],
-      "thumbnail": { "src": "/images/courses/vue3.jpg", "alt": "Vue 3 완벽 가이드 썸네일" },
-      "instructorId": "instructor-2",
-      "link": "/courses/vue3-guide",
-      "ariaLabel": "Vue 3 완벽 가이드 상세 보기",
+      "id": "danang-5d4n",
+      "title": "다낭 힐링 휴양 5일",
+      "description": "바나힐, 호이안 야경, 미케비치까지! 베트남 최고의 휴양 도시에서 완벽한 힐링을",
+      "category": "southeast-asia",
+      "tags": ["휴양", "커플여행", "힐링"],
+      "thumbnail": { "src": "/images/spots/관광지2.jpg", "alt": "다낭 바나힐 골든브릿지" },
+      "guideId": "guide-2",
+      "link": "/courses/danang-5d4n",
+      "ariaLabel": "다낭 힐링 휴양 5일 상세 보기",
       "detail": {
-        "subtitle": "Vue 3의 모든 것을 한 강의에서",
-        "level": "초급 ~ 고급",
-        "duration": "총 32시간 (48강)",
-        "price": "119,000원",
-        "originalPrice": "169,000원",
+        "subtitle": "베트남 최고의 휴양지에서 힐링을",
+        "duration": "4박 5일",
+        "groupSize": "최소 2인 ~ 최대 16인",
+        "price": "790,000원",
+        "originalPrice": "990,000원",
         "rating": 4.8,
         "reviewCount": 512,
-        "studentCount": 2341,
-        "updatedAt": "2024.11",
-        "features": ["평생 소장 가능", "수료증 발급", "실습 프로젝트 3개", "1:1 코드 리뷰"],
-        "whatYouLearn": [
-          "Vue 3 핵심 개념과 Composition API",
-          "TypeScript와 Vue의 완벽한 통합",
-          "Pinia를 활용한 상태 관리",
-          "Vue Router로 SPA 라우팅 구현",
-          "테스트 코드 작성과 배포 자동화"
+        "bookingCount": 2341,
+        "departure": "인천국제공항",
+        "airline": "베트남항공 / 비엣젯항공",
+        "hotel": "5성급 리조트",
+        "features": ["왕복 항공권", "5성급 리조트", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "바나힐 케이블카 & 골든브릿지",
+          "호이안 올드타운 야경 투어",
+          "미케비치 해변 자유시간",
+          "마블 마운틴 석회동굴 탐험",
+          "베트남 전통 스파 체험"
         ],
-        "curriculum": [
-          {
-            "title": "Vue 3 기초",
-            "lessons": [
-              { "title": "Vue 3 소개와 프로젝트 세팅", "duration": "20분" },
-              { "title": "템플릿 문법 마스터", "duration": "30분" },
-              { "title": "반응형 데이터 이해하기", "duration": "25분" }
-            ]
-          },
-          {
-            "title": "Composition API 심화",
-            "lessons": [
-              { "title": "ref와 reactive 완벽 이해", "duration": "35분" },
-              { "title": "computed와 watch", "duration": "28분" },
-              { "title": "커스텀 Composables 만들기", "duration": "40분" }
-            ]
-          }
-        ],
-        "requirements": ["HTML, CSS, JavaScript 기초 지식", "Node.js 설치"],
-        "targetAudience": [
-          "Vue를 처음 배우는 프론트엔드 개발자",
-          "Vue 2에서 Vue 3로 마이그레이션하려는 분",
-          "TypeScript와 Vue를 함께 사용하고 싶은 분"
-        ]
+        "itinerary": [],
+        "includes": ["왕복 항공권", "4박 리조트 숙박", "조식 포함", "바나힐 입장권", "여행자 보험"],
+        "excludes": ["개인 경비", "선택 관광", "비자 비용"],
+        "notice": ["비자 면제 협정으로 15일 무비자 가능"]
       }
     },
     {
-      "id": "spring-boot",
-      "title": "Spring Boot 실전 프로젝트",
-      "description": "JPA와 Spring Security로 만드는 실무 백엔드 시스템",
-      "category": "backend",
-      "tags": ["Java", "Spring Boot", "JPA"],
-      "thumbnail": { "src": "/images/courses/spring.jpg", "alt": "Spring Boot 실전 프로젝트 썸네일" },
-      "instructorId": "instructor-3",
-      "link": "/courses/spring-boot",
-      "ariaLabel": "Spring Boot 실전 프로젝트 상세 보기",
+      "id": "jeju-3d2n",
+      "title": "제주 올레길 힐링 3일",
+      "description": "성산일출봉, 섭지코지, 우도까지! 제주의 자연을 온몸으로 느끼는 힐링 여행",
+      "category": "domestic",
+      "tags": ["국내여행", "힐링", "자연"],
+      "thumbnail": { "src": "/images/spots/관광지3.jpg", "alt": "제주 성산일출봉 전경" },
+      "guideId": "guide-3",
+      "link": "/courses/jeju-3d2n",
+      "ariaLabel": "제주 올레길 힐링 3일 상세 보기",
       "detail": {
-        "subtitle": "실무에서 바로 쓰는 스프링 부트 개발",
-        "level": "중급",
-        "duration": "총 40시간 (56강)",
-        "price": "139,000원",
-        "originalPrice": "199,000원",
+        "subtitle": "제주의 자연 속으로",
+        "duration": "2박 3일",
+        "groupSize": "최소 2인 ~ 최대 12인",
+        "price": "450,000원",
+        "originalPrice": "590,000원",
         "rating": 4.9,
         "reviewCount": 421,
-        "studentCount": 1923,
-        "updatedAt": "2024.12",
-        "features": ["평생 소장 가능", "수료증 발급", "실전 프로젝트 2개", "코드 리뷰 제공"],
-        "whatYouLearn": [
-          "Spring Boot 3.x 핵심 기능",
-          "JPA와 QueryDSL로 데이터 다루기",
-          "Spring Security로 인증/인가 구현",
-          "REST API 설계와 문서화",
-          "Docker로 배포 환경 구성"
+        "bookingCount": 1923,
+        "departure": "김포/김해공항",
+        "airline": "제주항공 / 대한항공",
+        "hotel": "4성급 호텔",
+        "features": ["왕복 항공권", "4성급 호텔", "전 일정 조식", "렌터카 포함"],
+        "highlights": [
+          "성산일출봉 일출 감상",
+          "우도 자전거 일주",
+          "올레길 7코스 트레킹",
+          "섭지코지 해안 산책",
+          "제주 흑돼지 맛집 투어"
         ],
-        "curriculum": [],
-        "requirements": ["Java 기초 문법 이해", "SQL 기본 지식"],
-        "targetAudience": [
-          "백엔드 개발자로 취업을 준비하는 분",
-          "Spring Boot를 실무 수준으로 배우고 싶은 분"
-        ]
+        "itinerary": [],
+        "includes": ["왕복 항공권", "2박 호텔 숙박", "렌터카 3일", "여행자 보험"],
+        "excludes": ["개인 경비", "주유비", "식사비"],
+        "notice": ["렌터카 운전 가능한 분 필요"]
       }
     },
     {
-      "id": "chatgpt-api",
-      "title": "ChatGPT API 활용법",
-      "description": "OpenAI API로 나만의 AI 서비스 만들기",
-      "category": "ai",
-      "tags": ["ChatGPT", "OpenAI", "프롬프트"],
-      "thumbnail": { "src": "/images/courses/chatgpt.jpg", "alt": "ChatGPT API 활용법 썸네일" },
-      "instructorId": "instructor-4",
-      "link": "/courses/chatgpt-api",
-      "ariaLabel": "ChatGPT API 활용법 상세 보기",
+      "id": "paris-7d5n",
+      "title": "파리 로맨틱 7일",
+      "description": "에펠탑, 루브르, 몽마르트르까지! 사랑의 도시 파리에서 로맨틱한 여행을",
+      "category": "europe",
+      "tags": ["허니문", "커플여행", "문화"],
+      "thumbnail": { "src": "/images/spots/관광지4.jpg", "alt": "파리 에펠탑 야경" },
+      "guideId": "guide-4",
+      "link": "/courses/paris-7d5n",
+      "ariaLabel": "파리 로맨틱 7일 상세 보기",
       "detail": {
-        "subtitle": "AI 시대, 개발자를 위한 필수 스킬",
-        "level": "초급 ~ 중급",
-        "duration": "총 16시간 (24강)",
-        "price": "79,000원",
-        "originalPrice": "109,000원",
-        "rating": 4.7,
-        "reviewCount": 289,
-        "studentCount": 1456,
-        "updatedAt": "2024.12",
-        "features": ["평생 소장 가능", "수료증 발급", "API 크레딧 제공", "실습 프로젝트"],
-        "whatYouLearn": [
-          "OpenAI API 완벽 이해",
-          "효과적인 프롬프트 엔지니어링",
-          "Function Calling 활용",
-          "RAG 시스템 구축 기초",
-          "실제 서비스에 AI 통합하기"
-        ],
-        "curriculum": [],
-        "requirements": ["기본적인 프로그래밍 경험", "OpenAI API 키 (유료)"],
-        "targetAudience": [
-          "AI를 서비스에 적용하고 싶은 개발자",
-          "ChatGPT API를 배우고 싶은 누구나"
-        ]
-      }
-    },
-    {
-      "id": "service-planning",
-      "title": "서비스 기획 실무",
-      "description": "아이디어부터 런칭까지, 성공하는 서비스 기획의 모든 것",
-      "category": "planning",
-      "tags": ["서비스기획", "PRD", "사용자분석"],
-      "thumbnail": { "src": "/images/courses/planning.jpg", "alt": "서비스 기획 실무 썸네일" },
-      "instructorId": "instructor-5",
-      "link": "/courses/service-planning",
-      "ariaLabel": "서비스 기획 실무 상세 보기",
-      "detail": {
-        "subtitle": "현업 PM이 알려주는 기획의 모든 것",
-        "level": "초급 ~ 중급",
-        "duration": "총 20시간 (28강)",
-        "price": "99,000원",
-        "originalPrice": "139,000원",
-        "rating": 4.8,
-        "reviewCount": 198,
-        "studentCount": 876,
-        "updatedAt": "2024.11",
-        "features": ["평생 소장 가능", "수료증 발급", "기획 템플릿 제공", "포트폴리오 피드백"],
-        "whatYouLearn": [
-          "서비스 기획 프로세스 전체 이해",
-          "사용자 리서치와 페르소나 설정",
-          "PRD/기능정의서 작성법",
-          "와이어프레임과 프로토타입",
-          "데이터 기반 의사결정"
-        ],
-        "curriculum": [],
-        "requirements": ["특별한 선수 지식 없음"],
-        "targetAudience": [
-          "PM/기획자로 취업을 준비하는 분",
-          "체계적인 기획 방법론을 배우고 싶은 분"
-        ]
-      }
-    },
-    {
-      "id": "nextjs-fullstack",
-      "title": "React + Next.js 풀스택",
-      "description": "서버 사이드 렌더링과 API Routes로 풀스택 개발하기",
-      "category": "frontend",
-      "tags": ["React", "Next.js", "SSR"],
-      "thumbnail": { "src": "/images/courses/nextjs.jpg", "alt": "React + Next.js 풀스택 썸네일" },
-      "instructorId": "instructor-2",
-      "link": "/courses/nextjs-fullstack",
-      "ariaLabel": "React + Next.js 풀스택 상세 보기",
-      "detail": {
-        "subtitle": "풀스택 개발의 새로운 패러다임",
-        "level": "중급 ~ 고급",
-        "duration": "총 36시간 (52강)",
-        "price": "149,000원",
-        "originalPrice": "209,000원",
+        "subtitle": "사랑의 도시에서 특별한 추억을",
+        "duration": "5박 7일",
+        "groupSize": "최소 2인 ~ 최대 10인",
+        "price": "2,890,000원",
+        "originalPrice": "3,490,000원",
         "rating": 4.9,
+        "reviewCount": 289,
+        "bookingCount": 876,
+        "departure": "인천국제공항",
+        "airline": "에어프랑스 / 대한항공",
+        "hotel": "5성급 부티크 호텔",
+        "features": ["왕복 항공권", "5성급 호텔", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "에펠탑 야경 디너 크루즈",
+          "루브르 박물관 프라이빗 투어",
+          "몽마르트르 언덕 산책",
+          "베르사유 궁전 투어",
+          "세느강 유람선"
+        ],
+        "itinerary": [],
+        "includes": ["왕복 항공권", "5박 호텔 숙박", "조식 포함", "주요 관광지 입장권", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "선택 관광"],
+        "notice": ["솅겐 비자 불필요 (90일 무비자)"]
+      }
+    },
+    {
+      "id": "tokyo-4d3n",
+      "title": "도쿄 자유여행 4일",
+      "description": "시부야, 하라주쿠, 아사쿠사까지! 트렌디한 도쿄의 모든 것을 자유롭게",
+      "category": "japan",
+      "tags": ["자유여행", "쇼핑", "맛집"],
+      "thumbnail": { "src": "/images/spots/관광지5.jpg", "alt": "도쿄 시부야 스크램블 교차로" },
+      "guideId": "guide-1",
+      "link": "/courses/tokyo-4d3n",
+      "ariaLabel": "도쿄 자유여행 4일 상세 보기",
+      "detail": {
+        "subtitle": "자유롭게 즐기는 도쿄",
+        "duration": "3박 4일",
+        "groupSize": "최소 1인 ~ 최대 무제한",
+        "price": "650,000원",
+        "originalPrice": "850,000원",
+        "rating": 4.7,
         "reviewCount": 387,
-        "studentCount": 1654,
-        "updatedAt": "2024.12",
-        "features": ["평생 소장 가능", "수료증 발급", "실전 프로젝트 3개", "배포 가이드"],
-        "whatYouLearn": [
-          "Next.js App Router 완벽 이해",
-          "서버 컴포넌트와 클라이언트 컴포넌트",
-          "API Routes로 백엔드 구현",
-          "데이터베이스 연동 (Prisma)",
-          "Vercel 배포와 최적화"
+        "bookingCount": 2156,
+        "departure": "인천/김포공항",
+        "airline": "대한항공 / 아시아나항공",
+        "hotel": "3성급 비즈니스 호텔",
+        "features": ["왕복 항공권", "3성급 호텔", "여행자 보험", "공항 리무진"],
+        "highlights": [
+          "시부야 스크램블 교차로",
+          "하라주쿠 다케시타도리",
+          "아사쿠사 센소지",
+          "도쿄타워 야경",
+          "츠키지 시장 먹방"
         ],
-        "curriculum": [],
-        "requirements": ["React 기초 지식", "JavaScript/TypeScript 이해"],
-        "targetAudience": [
-          "풀스택 개발에 관심 있는 프론트엔드 개발자",
-          "Next.js를 제대로 배우고 싶은 분"
-        ]
+        "itinerary": [],
+        "includes": ["왕복 항공권", "3박 호텔 숙박", "공항 리무진 왕복", "여행자 보험"],
+        "excludes": ["개인 경비", "식사", "현지 교통비"],
+        "notice": ["자유여행 상품으로 가이드 미동행"]
       }
     },
     {
-      "id": "ethereum-smart-contract",
-      "title": "이더리움 스마트 컨트랙트",
-      "description": "Solidity로 배우는 블록체인 DApp 개발",
-      "category": "blockchain",
-      "tags": ["Ethereum", "Solidity", "Web3"],
-      "thumbnail": { "src": "/images/courses/blockchain.jpg", "alt": "이더리움 스마트 컨트랙트 썸네일" },
-      "instructorId": "instructor-6",
-      "link": "/courses/ethereum-smart-contract",
-      "ariaLabel": "이더리움 스마트 컨트랙트 상세 보기",
+      "id": "singapore-4d3n",
+      "title": "싱가포르 가족여행 4일",
+      "description": "마리나베이, 센토사, 유니버설까지! 가족과 함께하는 안전한 싱가포르 여행",
+      "category": "southeast-asia",
+      "tags": ["가족여행", "테마파크", "도시"],
+      "thumbnail": { "src": "/images/spots/관광지6.jpg", "alt": "싱가포르 마리나베이 샌즈" },
+      "guideId": "guide-2",
+      "link": "/courses/singapore-4d3n",
+      "ariaLabel": "싱가포르 가족여행 4일 상세 보기",
       "detail": {
-        "subtitle": "블록체인 개발의 첫걸음",
-        "level": "중급",
-        "duration": "총 28시간 (40강)",
-        "price": "129,000원",
-        "originalPrice": "179,000원",
-        "rating": 4.6,
-        "reviewCount": 156,
-        "studentCount": 723,
-        "updatedAt": "2024.10",
-        "features": ["평생 소장 가능", "수료증 발급", "테스트넷 실습", "NFT 프로젝트"],
-        "whatYouLearn": [
-          "이더리움과 블록체인 기초",
-          "Solidity 문법과 패턴",
-          "스마트 컨트랙트 배포",
-          "Web3.js로 프론트엔드 연동",
-          "보안과 가스 최적화"
-        ],
-        "curriculum": [],
-        "requirements": ["JavaScript 기초 지식", "블록체인 기본 개념 이해"],
-        "targetAudience": [
-          "블록체인 개발에 관심 있는 개발자",
-          "Web3 생태계에 진입하고 싶은 분"
-        ]
-      }
-    },
-    {
-      "id": "python-data-analysis",
-      "title": "파이썬 데이터 분석",
-      "description": "Pandas와 시각화로 배우는 데이터 분석 입문",
-      "category": "data",
-      "tags": ["Python", "Pandas", "데이터분석"],
-      "thumbnail": { "src": "/images/courses/data-analysis.jpg", "alt": "파이썬 데이터 분석 썸네일" },
-      "instructorId": "instructor-7",
-      "link": "/courses/python-data-analysis",
-      "ariaLabel": "파이썬 데이터 분석 상세 보기",
-      "detail": {
-        "subtitle": "데이터로 인사이트를 발견하는 방법",
-        "level": "초급",
-        "duration": "총 22시간 (30강)",
-        "price": "89,000원",
-        "originalPrice": "129,000원",
+        "subtitle": "가족과 함께하는 안전한 여행",
+        "duration": "3박 4일",
+        "groupSize": "최소 2인 ~ 최대 15인",
+        "price": "1,290,000원",
+        "originalPrice": "1,590,000원",
         "rating": 4.8,
-        "reviewCount": 267,
-        "studentCount": 1234,
-        "updatedAt": "2024.11",
-        "features": ["평생 소장 가능", "수료증 발급", "데이터셋 제공", "실습 노트북"],
-        "whatYouLearn": [
-          "Python 데이터 분석 환경 구축",
-          "Pandas로 데이터 전처리",
-          "Matplotlib/Seaborn 시각화",
-          "통계 기초와 EDA",
-          "실제 데이터 분석 프로젝트"
+        "reviewCount": 256,
+        "bookingCount": 1234,
+        "departure": "인천국제공항",
+        "airline": "싱가포르항공 / 대한항공",
+        "hotel": "5성급 호텔",
+        "features": ["왕복 항공권", "5성급 호텔", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "마리나베이 샌즈 전망대",
+          "센토사 유니버설 스튜디오",
+          "가든스바이더베이 야경",
+          "리버 사파리",
+          "차이나타운 맛집 투어"
         ],
-        "curriculum": [],
-        "requirements": ["Python 기초 문법"],
-        "targetAudience": [
-          "데이터 분석가를 꿈꾸는 분",
-          "업무에 데이터 분석을 적용하고 싶은 분"
-        ]
+        "itinerary": [],
+        "includes": ["왕복 항공권", "3박 호텔 숙박", "유니버설 스튜디오 입장권", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "선택 관광"],
+        "notice": ["비자 면제 (90일 무비자)"]
+      }
+    },
+    {
+      "id": "sydney-8d6n",
+      "title": "시드니 완전정복 8일",
+      "description": "오페라하우스, 블루마운틴, 본다이비치까지! 호주의 매력을 만끽하는 여행",
+      "category": "oceania",
+      "tags": ["자연", "문화", "장기여행"],
+      "thumbnail": { "src": "/images/spots/관광지7.jpg", "alt": "시드니 오페라하우스" },
+      "guideId": "guide-3",
+      "link": "/courses/sydney-8d6n",
+      "ariaLabel": "시드니 완전정복 8일 상세 보기",
+      "detail": {
+        "subtitle": "호주의 모든 것을 경험하다",
+        "duration": "6박 8일",
+        "groupSize": "최소 4인 ~ 최대 12인",
+        "price": "3,490,000원",
+        "originalPrice": "4,190,000원",
+        "rating": 4.9,
+        "reviewCount": 198,
+        "bookingCount": 567,
+        "departure": "인천국제공항",
+        "airline": "콴타스항공 / 대한항공",
+        "hotel": "4성급 호텔",
+        "features": ["왕복 항공권", "4성급 호텔", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "시드니 오페라하우스 투어",
+          "블루마운틴 에코 투어",
+          "본다이비치 서핑 체험",
+          "타롱가 동물원",
+          "하버브릿지 야경"
+        ],
+        "itinerary": [],
+        "includes": ["왕복 항공권", "6박 호텔 숙박", "조식 포함", "블루마운틴 투어", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "ETA 비자비"],
+        "notice": ["ETA 비자 필요 (온라인 신청)"]
+      }
+    },
+    {
+      "id": "newyork-6d4n",
+      "title": "뉴욕 시티투어 6일",
+      "description": "자유의 여신상, 타임스퀘어, 센트럴파크까지! 세계의 수도 뉴욕을 만나다",
+      "category": "america",
+      "tags": ["도시", "문화", "쇼핑"],
+      "thumbnail": { "src": "/images/spots/관광지8.jpg", "alt": "뉴욕 자유의 여신상" },
+      "guideId": "guide-4",
+      "link": "/courses/newyork-6d4n",
+      "ariaLabel": "뉴욕 시티투어 6일 상세 보기",
+      "detail": {
+        "subtitle": "꿈의 도시 뉴욕에서",
+        "duration": "4박 6일",
+        "groupSize": "최소 2인 ~ 최대 15인",
+        "price": "2,490,000원",
+        "originalPrice": "2,990,000원",
+        "rating": 4.8,
+        "reviewCount": 312,
+        "bookingCount": 789,
+        "departure": "인천국제공항",
+        "airline": "대한항공 / 아시아나항공",
+        "hotel": "4성급 호텔 (맨해튼)",
+        "features": ["왕복 항공권", "4성급 호텔", "전 일정 조식", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "자유의 여신상 페리 투어",
+          "타임스퀘어 야경",
+          "센트럴파크 산책",
+          "브로드웨이 뮤지컬 관람",
+          "5번가 쇼핑"
+        ],
+        "itinerary": [],
+        "includes": ["왕복 항공권", "4박 호텔 숙박", "조식 포함", "자유의 여신상 페리", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "ESTA 비용", "뮤지컬 티켓"],
+        "notice": ["ESTA 사전 승인 필요"]
+      }
+    },
+    {
+      "id": "busan-2d1n",
+      "title": "부산 미식여행 2일",
+      "description": "해운대, 광안리, 감천문화마을까지! 부산의 맛과 멋을 즐기는 알찬 여행",
+      "category": "domestic",
+      "tags": ["국내여행", "미식", "도시"],
+      "thumbnail": { "src": "/images/spots/관광지9.jpg", "alt": "부산 해운대 해수욕장" },
+      "guideId": "guide-3",
+      "link": "/courses/busan-2d1n",
+      "ariaLabel": "부산 미식여행 2일 상세 보기",
+      "detail": {
+        "subtitle": "부산의 맛에 빠지다",
+        "duration": "1박 2일",
+        "groupSize": "최소 2인 ~ 최대 20인",
+        "price": "189,000원",
+        "originalPrice": "249,000원",
+        "rating": 4.7,
+        "reviewCount": 567,
+        "bookingCount": 3421,
+        "departure": "서울역/부산역",
+        "airline": "KTX",
+        "hotel": "4성급 해운대 호텔",
+        "features": ["KTX 왕복", "4성급 호텔", "조식 포함"],
+        "highlights": [
+          "해운대 해수욕장",
+          "광안리 야경",
+          "감천문화마을 투어",
+          "자갈치시장 회 먹방",
+          "해동용궁사"
+        ],
+        "itinerary": [],
+        "includes": ["KTX 왕복", "1박 호텔 숙박", "조식 포함"],
+        "excludes": ["개인 경비", "식사비", "입장료"],
+        "notice": ["KTX 좌석 사전 배정"]
+      }
+    },
+    {
+      "id": "bali-6d4n",
+      "title": "발리 허니문 6일",
+      "description": "우붓, 꾸따비치, 울루와뚜까지! 신혼부부를 위한 로맨틱 발리 여행",
+      "category": "southeast-asia",
+      "tags": ["허니문", "휴양", "커플여행"],
+      "thumbnail": { "src": "/images/spots/관광지10.jpg", "alt": "발리 우붓 라이스테라스" },
+      "guideId": "guide-2",
+      "link": "/courses/bali-6d4n",
+      "ariaLabel": "발리 허니문 6일 상세 보기",
+      "detail": {
+        "subtitle": "신혼부부를 위한 로맨틱 여행",
+        "duration": "4박 6일",
+        "groupSize": "최소 2인 (커플 전용)",
+        "price": "1,890,000원",
+        "originalPrice": "2,390,000원",
+        "rating": 4.9,
+        "reviewCount": 423,
+        "bookingCount": 1567,
+        "departure": "인천국제공항",
+        "airline": "가루다인도네시아 / 대한항공",
+        "hotel": "5성급 풀빌라",
+        "features": ["왕복 항공권", "5성급 풀빌라", "전 일정 조식", "여행자 보험", "커플 스파"],
+        "highlights": [
+          "우붓 라이스테라스 트레킹",
+          "울루와뚜 선셋 디너",
+          "프라이빗 풀빌라 숙박",
+          "커플 발리니스 스파",
+          "꾸따비치 선셋"
+        ],
+        "itinerary": [],
+        "includes": ["왕복 항공권", "4박 풀빌라 숙박", "조식 포함", "커플 스파 1회", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "선택 관광"],
+        "notice": ["비자 면제 (30일 무비자)"]
+      }
+    },
+    {
+      "id": "swiss-9d7n",
+      "title": "스위스 알프스 9일",
+      "description": "융프라우, 마터호른, 루체른까지! 알프스의 절경을 만끽하는 프리미엄 여행",
+      "category": "europe",
+      "tags": ["자연", "트레킹", "프리미엄"],
+      "thumbnail": { "src": "/images/spots/관광지11.jpg", "alt": "스위스 융프라우 설경" },
+      "guideId": "guide-4",
+      "link": "/courses/swiss-9d7n",
+      "ariaLabel": "스위스 알프스 9일 상세 보기",
+      "detail": {
+        "subtitle": "알프스의 절경 속으로",
+        "duration": "7박 9일",
+        "groupSize": "최소 4인 ~ 최대 12인",
+        "price": "4,990,000원",
+        "originalPrice": "5,990,000원",
+        "rating": 5.0,
+        "reviewCount": 156,
+        "bookingCount": 423,
+        "departure": "인천국제공항",
+        "airline": "스위스항공 / 대한항공",
+        "hotel": "4성급 알프스 뷰 호텔",
+        "features": ["왕복 항공권", "4성급 호텔", "전 일정 조식", "스위스패스", "여행자 보험", "전문 가이드"],
+        "highlights": [
+          "융프라우요흐 Top of Europe",
+          "마터호른 전망대",
+          "루체른 카펠교 & 구시가지",
+          "인터라켄 패러글라이딩",
+          "빙하특급 탑승"
+        ],
+        "itinerary": [],
+        "includes": ["왕복 항공권", "7박 호텔 숙박", "조식 포함", "스위스패스 8일권", "여행자 보험"],
+        "excludes": ["개인 경비", "점심/저녁 식사", "선택 관광 (패러글라이딩 등)"],
+        "notice": ["솅겐 비자 불필요 (90일 무비자)", "고산지대 이동 - 건강 상태 확인 필요"]
       }
     }
   ]

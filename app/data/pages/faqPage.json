@@ -1,31 +1,31 @@
 {
   "_desc": "FAQ 페이지 전용 설정 - 실제 FAQ 데이터는 faq.json 참조",
   "meta": {
-    "title": "FAQ | 에듀테크 아카데미",
-    "description": "에듀테크 아카데미에 대한 자주 묻는 질문과 강의별 Q&A를 확인하세요.",
-    "ogTitle": "FAQ | 에듀테크 아카데미",
-    "ogDescription": "수강 관련 자주 묻는 질문과 강의별 Q&A"
+    "title": "FAQ | 마이트립",
+    "description": "마이트립에 대한 자주 묻는 질문과 여행상품별 Q&A를 확인하세요.",
+    "ogTitle": "FAQ | 마이트립",
+    "ogDescription": "예약 관련 자주 묻는 질문과 여행상품별 Q&A"
   },
   "hero": {
     "badge": "FAQ",
     "title": "자주 묻는 질문",
-    "description": "에듀테크 아카데미에 대해 궁금한 점을 확인해보세요.",
+    "description": "마이트립에 대해 궁금한 점을 확인해보세요.",
     "ariaLabel": "FAQ 페이지 소개"
   },
   "generalFaq": {
     "_desc": "일반 FAQ 섹션 설정",
     "title": "일반 문의",
-    "description": "수강, 결제, 학습에 대한 자주 묻는 질문",
+    "description": "예약, 결제, 여행에 대한 자주 묻는 질문",
     "ariaLabel": "일반 FAQ 섹션"
   },
-  "courseQnA": {
-    "_desc": "강의별 Q&A 섹션 설정",
-    "title": "강의 Q&A",
-    "description": "강의에 대해 궁금한 점을 질문하고, 다른 수강생들의 질문과 답변도 확인해보세요.",
-    "ariaLabel": "강의 Q&A 섹션",
+  "tripQnA": {
+    "_desc": "여행상품별 Q&A 섹션 설정",
+    "title": "여행상품 Q&A",
+    "description": "여행상품에 대해 궁금한 점을 질문하고, 다른 여행자들의 질문과 답변도 확인해보세요.",
+    "ariaLabel": "여행상품 Q&A 섹션",
     "searchPlaceholder": "질문 키워드 검색",
     "searchAriaLabel": "Q&A 키워드 검색",
-    "filterLabel": "강의 선택",
-    "allCoursesLabel": "전체 강의"
+    "filterLabel": "여행상품 선택",
+    "allCoursesLabel": "전체 여행상품"
   }
 }

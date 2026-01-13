@@ -1,5 +1,4 @@
 <script setup>
-import QnaCategoryFilter from './QnaCategoryFilter.vue'
 import QnaAccordionItem from './QnaAccordionItem.vue'
 
 const props = defineProps({
@@ -58,23 +57,40 @@ const totalCount = computed(() => props.data.qnaList.length)
     :aria-label="data.filter.ariaLabel ?? '강의별 Q&A'"
   >
     <div class="qna-list-section__container container">
-      <div class="qna-list-section__sidebar">
-        <QnaCategoryFilter
-          :categories="data.filter.categories"
-          :search-placeholder="data.filter.searchPlaceholder"
-          :search-aria-label="data.filter.searchAriaLabel"
-          v-model:active-category="activeCategory"
-          v-model:search-query="searchQuery"
-        />
+      <div class="qna-list-section__top">
+        <p class="qna-list-section__result-count">
+          총 <strong>{{ resultCount }}</strong>개의 Q&A
+          <span v-if="resultCount !== totalCount"> (전체 {{ totalCount }}개)</span>
+        </p>
+        <div class="qna-list-section__search">
+          <label for="qna-search" class="visually-hidden">{{ data.filter.searchAriaLabel }}</label>
+          <div class="qna-list-section__search-wrap">
+            <svg
+              class="qna-list-section__search-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="M21 21l-4.35-4.35" />
+            </svg>
+            <input
+              id="qna-search"
+              type="text"
+              class="qna-list-section__search-input"
+              :placeholder="data.filter.searchPlaceholder"
+              :value="searchQuery"
+              @input="searchQuery = $event.target.value"
+            />
+          </div>
+        </div>
       </div>
 
       <div class="qna-list-section__content">
-        <div class="qna-list-section__header">
-          <p class="qna-list-section__result-count">
-            총 <strong>{{ resultCount }}</strong>개의 Q&A
-            <span v-if="resultCount !== totalCount"> (전체 {{ totalCount }}개)</span>
-          </p>
-        </div>
 
         <div
           v-if="filteredQnaList.length > 0"

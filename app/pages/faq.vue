@@ -1,5 +1,4 @@
 <script setup>
-import mainData from '~/data/mainData.json'
 import faqPageData from '~/data/pages/faqPage.json'
 import QnaHeroSection from '~/components/faq/QnaHeroSection.vue'
 import QnaListSection from '~/components/faq/QnaListSection.vue'
@@ -26,15 +25,15 @@ useHead({
 // 일반 FAQ 데이터
 const generalFaqList = getAllGeneralFaq()
 
-// 강의별 Q&A 데이터 (강의명 포함)
-const courseQnAList = getQnAListWithCourseNames(getAllCourseQnA())
+// 여행상품별 Q&A 데이터 (상품명 포함)
+const tripQnAList = getQnAListWithCourseNames(getAllCourseQnA())
 
-// Q&A가 있는 강의 목록 (필터용)
+// Q&A가 있는 여행상품 목록 (필터용)
 const coursesWithQnA = getCoursesWithQnA()
 
 // Q&A 필터 카테고리 생성
 const filterCategories = computed(() => [
-  { id: 'all', label: faqPageData.courseQnA.allCoursesLabel, ariaLabel: '전체 Q&A 보기' },
+  { id: 'all', label: faqPageData.tripQnA.allCoursesLabel, ariaLabel: '전체 Q&A 보기' },
   ...coursesWithQnA.map(course => ({
     id: course.id,
     label: course.title,
@@ -44,11 +43,11 @@ const filterCategories = computed(() => [
 
 const listData = computed(() => ({
   filter: {
-    searchPlaceholder: faqPageData.courseQnA.searchPlaceholder,
-    searchAriaLabel: faqPageData.courseQnA.searchAriaLabel,
+    searchPlaceholder: faqPageData.tripQnA.searchPlaceholder,
+    searchAriaLabel: faqPageData.tripQnA.searchAriaLabel,
     categories: filterCategories.value
   },
-  qnaList: courseQnAList,
+  qnaList: tripQnAList,
   generalFaq: {
     ...faqPageData.generalFaq,
     list: generalFaqList

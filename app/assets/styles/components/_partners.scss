@@ -32,11 +32,11 @@
   // ===========================
 
   &--default {
-    background-color: $color-background;
+    background-color: $neutral-900;
   }
 
   &--brand {
-    background: linear-gradient(135deg, $primary-600 0%, $primary-700 100%);
+    background: linear-gradient(135deg, $neutral-600 0%, $neutral-700 100%);
 
     .partners-section__title,
     .partners-section__subtitle {
@@ -133,20 +133,20 @@
   // 기본 배경 그라데이션
   &--default &__slider {
     &::before {
-      background: linear-gradient(to right, $color-background, transparent);
+      background: linear-gradient(to right, $neutral-900, transparent);
     }
     &::after {
-      background: linear-gradient(to left, $color-background, transparent);
+      background: linear-gradient(to left, $neutral-900, transparent);
     }
   }
 
   // 브랜드 배경 그라데이션
   &--brand &__slider {
     &::before {
-      background: linear-gradient(to right, $primary-600, transparent);
+      background: linear-gradient(to right, $neutral-600, transparent);
     }
     &::after {
-      background: linear-gradient(to left, $primary-700, transparent);
+      background: linear-gradient(to left, $neutral-600, transparent);
     }
   }
 
@@ -174,22 +174,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 140px;
-    height: 80px;
+    width: 160px;
+    height: 90px;
     padding: $space-4;
-    background-color: $color-surface;
-    border: 1px solid $color-border-light;
+    background-color: transparent;
+    border: none;
     border-radius: $radius-lg;
     transition: all $transition-base;
 
     @media (min-width: $container-md) {
-      width: 180px;
-      height: 100px;
+      width: 200px;
+      height: 110px;
     }
 
     &:hover {
-      border-color: $primary-200;
-      box-shadow: $shadow-md;
       transform: translateY(-4px);
     }
 
@@ -201,19 +199,19 @@
 
   &__logo {
     max-width: 100%;
-    max-height: 48px;
+    max-height: 64px;
     object-fit: contain;
-    filter: grayscale(100%);
+    filter: brightness(0) invert(1);
     opacity: 0.7;
     transition: all $transition-base;
 
     @media (min-width: $container-md) {
-      max-height: 56px;
+      max-height: 72px;
     }
   }
 
   &__logo-wrap:hover &__logo {
-    filter: grayscale(0);
+    filter: brightness(0) invert(1);
     opacity: 1;
   }
 }

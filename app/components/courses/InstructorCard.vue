@@ -41,7 +41,7 @@ const handleClick = () => {
         <li
           v-for="specialty in instructor.specialties"
           :key="specialty"
-          class="instructor-card__specialty"
+          class="chip"
         >
           {{ specialty }}
         </li>

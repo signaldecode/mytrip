@@ -63,8 +63,7 @@ const handleSearchInput = (event) => {
     </div>
 
     <nav class="qna-filter__categories" aria-label="강의별 카테고리">
-      <h2 class="qna-filter__title">강의별 Q&A</h2>
-      <ul class="qna-filter__list" role="tablist">
+      <!-- <ul class="qna-filter__list" role="tablist">
         <li
           v-for="category in categories"
           :key="category.id"
@@ -84,7 +83,7 @@ const handleSearchInput = (event) => {
             {{ category.label }}
           </button>
         </li>
-      </ul>
+      </ul> -->
     </nav>
   </aside>
 </template>

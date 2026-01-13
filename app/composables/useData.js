@@ -53,14 +53,15 @@ export function useData() {
   }
 
   /**
-   * 강의에 강사 정보 결합
-   * @param {Object} course - 강의 객체
+   * 여행상품에 가이드 정보 결합
+   * @param {Object} course - 여행상품 객체
    */
   const getCourseWithInstructor = (course) => {
-    const instructor = getInstructorById(course.instructorId)
+    const instructor = getInstructorById(course.guideId || course.instructorId)
     return {
       ...course,
-      instructorData: instructor
+      instructorData: instructor,
+      guideData: instructor
     }
   }
 
@@ -147,22 +148,25 @@ export function useData() {
   }
 
   /**
-   * 특정 강의의 후기 필터링
-   * @param {string} courseId - 강의 ID
+   * 특정 여행상품의 후기 필터링
+   * @param {string} courseId - 여행상품 ID
    */
   const getReviewsByCourseId = (courseId) => {
-    return reviewsData.list.filter(review => review.courseId === courseId)
+    return reviewsData.list.filter(review =>
+      review.tripId === courseId || review.courseId === courseId
+    )
   }
 
   /**
-   * 후기에 강의명 추가
+   * 후기에 여행상품명 추가
    * @param {Object} review - 후기 객체
    */
   const getReviewWithCourseName = (review) => {
-    const course = getCourseById(review.courseId)
+    const course = getCourseById(review.tripId || review.courseId)
     return {
       ...review,
-      courseName: course?.title || review.courseName || '알 수 없는 강의'
+      courseName: course?.title || review.courseName || '알 수 없는 상품',
+      tripName: course?.title || review.courseName || '알 수 없는 상품'
     }
   }
 
@@ -195,28 +199,30 @@ export function useData() {
   }
 
   /**
-   * 강의별 Q&A 전체 목록 반환
+   * 여행상품별 Q&A 전체 목록 반환
    */
-  const getAllCourseQnA = () => faqData.courseQnA.list
+  const getAllCourseQnA = () => faqData.tripQnA?.list || []
 
   /**
-   * 특정 강의의 Q&A 필터링
-   * @param {string} courseId - 강의 ID
+   * 특정 여행상품의 Q&A 필터링
+   * @param {string} courseId - 여행상품 ID
    */
   const getCourseQnAByCourseId = (courseId) => {
-    if (!courseId || courseId === 'all') return faqData.courseQnA.list
-    return faqData.courseQnA.list.filter(qna => qna.courseId === courseId)
+    const list = faqData.tripQnA?.list || []
+    if (!courseId || courseId === 'all') return list
+    return list.filter(qna => qna.tripId === courseId || qna.courseId === courseId)
   }
 
   /**
-   * Q&A에 강의명 추가
+   * Q&A에 여행상품명 추가
    * @param {Object} qna - Q&A 객체
    */
   const getQnAWithCourseName = (qna) => {
-    const course = getCourseById(qna.courseId)
+    const course = getCourseById(qna.tripId || qna.courseId)
     return {
       ...qna,
-      courseName: course?.title || '알 수 없는 강의'
+      courseName: course?.title || '알 수 없는 상품',
+      tripName: course?.title || '알 수 없는 상품'
     }
   }
 
@@ -229,12 +235,13 @@ export function useData() {
   }
 
   /**
-   * Q&A에서 사용 가능한 강의 목록 반환
-   * (Q&A가 있는 강의만)
+   * Q&A에서 사용 가능한 여행상품 목록 반환
+   * (Q&A가 있는 상품만)
    */
   const getCoursesWithQnA = () => {
-    const courseIds = [...new Set(faqData.courseQnA.list.map(qna => qna.courseId))]
-    return getCoursesByIds(courseIds)
+    const list = faqData.tripQnA?.list || []
+    const tripIds = [...new Set(list.map(qna => qna.tripId || qna.courseId))]
+    return getCoursesByIds(tripIds)
   }
 
   return {

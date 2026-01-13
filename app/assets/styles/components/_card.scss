@@ -15,12 +15,54 @@
 @use '../tokens/spacing' as *;
 
 // ===========================
+// Chip (공통 칩 스타일)
+// ===========================
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-0-5 $space-1-5;
+  font-size: 10px;
+  font-weight: $font-weight-medium;
+  color: $neutral-800;
+  background-color: $primary-50;
+  border-radius: $radius-full;
+  white-space: nowrap;
+
+  @media (min-width: $container-md) {
+    padding: $space-0-5 $space-2;
+    font-size: $font-size-xs;
+  }
+
+  // 사이즈 변형
+  &--sm {
+    padding: $space-0-5 $space-1-5;
+    font-size: 10px;
+
+    @media (min-width: $container-md) {
+      padding: $space-0-5 $space-2;
+      font-size: $font-size-xs;
+    }
+  }
+
+  &--md {
+    padding: $space-1 $space-2;
+    font-size: 10px;
+
+    @media (min-width: $container-md) {
+      padding: $space-1 $space-2-5;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+// ===========================
 // Card Base
 // ===========================
 
 .card {
   background-color: $color-surface;
-  border: 1px solid $color-border-light;
+  border: 1px solid $neutral-200;
   border-radius: $radius-xl;
   overflow: hidden;
   transition: box-shadow $transition-base;
@@ -39,9 +81,20 @@
   height: 320px;
   display: flex;
   flex-direction: column;
+  background-color: $color-surface;
+  border: 1px solid $neutral-300;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: border-color $transition-base, box-shadow $transition-base, transform $transition-base;
 
   @media (min-width: $container-md) {
     height: 340px;
+  }
+
+  &:hover {
+    border-color: $primary-500;
+    box-shadow: 0 8px 24px rgba($primary-500, 0.2);
+    transform: translateY(-4px);
   }
 
   &__link {
@@ -99,20 +152,6 @@
     @media (min-width: $container-md) {
       gap: $space-1-5;
       margin-bottom: $space-2;
-    }
-  }
-
-  &__tag {
-    padding: $space-0-5 $space-1-5;
-    font-size: 10px;
-    font-weight: $font-weight-medium;
-    color: $primary-700;
-    background-color: $primary-50;
-    border-radius: $radius-full;
-
-    @media (min-width: $container-md) {
-      padding: $space-0-5 $space-2;
-      font-size: $font-size-xs;
     }
   }
 
@@ -185,8 +224,9 @@
   }
 
   &:hover {
+    border-color: $primary-500;
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba($neutral-900, 0.15);
+    box-shadow: 0 8px 24px rgba($primary-500, 0.2);
   }
 
   &:focus-visible {
@@ -293,22 +333,6 @@
     }
   }
 
-  &__course {
-    flex-shrink: 0;
-    padding: $space-1 $space-2;
-    font-size: 10px;
-    font-weight: $font-weight-medium;
-    color: $primary-700;
-    background-color: $primary-50;
-    border-radius: $radius-full;
-    white-space: nowrap;
-
-    @media (min-width: $container-md) {
-      padding: $space-1 $space-2-5;
-      font-size: $font-size-xs;
-    }
-  }
-
   &__title {
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
@@ -360,8 +384,9 @@
   transition: transform $transition-base, box-shadow $transition-base, border-color $transition-base;
 
   &:hover {
+    border-color: $primary-500;
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba($neutral-900, 0.12);
+    box-shadow: 0 8px 24px rgba($primary-500, 0.2);
   }
 
   &:focus-visible {
@@ -482,21 +507,6 @@
     }
   }
 
-  &__course {
-    flex-shrink: 0;
-    padding: $space-1 $space-2;
-    font-size: 10px;
-    font-weight: $font-weight-medium;
-    color: $primary-700;
-    background-color: $primary-50;
-    border-radius: $radius-full;
-    white-space: nowrap;
-
-    @media (min-width: $container-md) {
-      padding: $space-1 $space-2-5;
-      font-size: $font-size-xs;
-    }
-  }
 }
 
 // ===========================
@@ -509,7 +519,7 @@
   width: 100%;
   height: 280px;
   background-color: $color-surface;
-  border: 1px solid $color-border-light;
+  border: 1px solid $neutral-400 !important;
   border-radius: $radius-xl;
   overflow: hidden;
   cursor: pointer;
@@ -521,8 +531,8 @@
   }
 
   &:hover {
-    border-color: $primary-300;
-    box-shadow: 0 8px 24px rgba($primary-500, 0.12);
+    border-color: $primary-500;
+    box-shadow: 0 8px 24px rgba($primary-500, 0.2);
     transform: translateY(-4px);
   }
 
@@ -623,20 +633,6 @@
     @media (min-width: $container-md) {
       gap: $space-1-5;
       margin-bottom: $space-3;
-    }
-  }
-
-  &__specialty {
-    padding: $space-0-5 $space-1-5;
-    font-size: 10px;
-    font-weight: $font-weight-medium;
-    color: $primary-700;
-    background-color: $primary-50;
-    border-radius: $radius-full;
-
-    @media (min-width: $container-md) {
-      padding: $space-0-5 $space-2;
-      font-size: $font-size-xs;
     }
   }
 

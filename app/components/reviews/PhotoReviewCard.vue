@@ -43,7 +43,7 @@ const handleClick = () => {
           </div>
           <span class="photo-review-card__nickname">{{ review.nickname }}</span>
         </div>
-        <span class="photo-review-card__course">{{ review.courseName }}</span>
+        <span class="chip chip--md">{{ review.courseName }}</span>
       </div>
     </div>
   </article>

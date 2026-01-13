@@ -2,21 +2,21 @@
 const { getCourseById, getInstructorById } = useData()
 
 const route = useRoute()
-const courseId = route.params.id
+const tripId = route.params.id
 
-const course = computed(() => {
-  return getCourseById(courseId)
+const trip = computed(() => {
+  return getCourseById(tripId)
 })
 
-const instructor = computed(() => {
-  if (!course.value) return null
-  return getInstructorById(course.value.instructorId)
+const guide = computed(() => {
+  if (!trip.value) return null
+  return getInstructorById(trip.value.guideId)
 })
 
-if (!course.value) {
+if (!trip.value) {
   throw createError({
     statusCode: 404,
-    message: '강의를 찾을 수 없습니다.'
+    message: '여행 상품을 찾을 수 없습니다.'
   })
 }
 
@@ -25,143 +25,144 @@ definePageMeta({
 })
 
 useSeoMeta({
-  title: `${course.value.title} | 에듀테크 아카데미`,
-  description: course.value.description,
-  ogTitle: `${course.value.title} | 에듀테크 아카데미`,
-  ogDescription: course.value.description,
-  ogImage: course.value.thumbnail.src
+  title: `${trip.value.title} | 마이트립`,
+  description: trip.value.description,
+  ogTitle: `${trip.value.title} | 마이트립`,
+  ogDescription: trip.value.description,
+  ogImage: trip.value.thumbnail.src
 })
 
 useHead({
-  title: `${course.value.title} | 에듀테크 아카데미`
+  title: `${trip.value.title} | 마이트립`
 })
 </script>
 
 <template>
-  <main v-if="course" class="course-detail">
-    <section class="course-hero" :aria-label="`${course.title} 강의 소개`">
+  <main v-if="trip" class="trip-detail">
+    <section class="trip-hero" :aria-label="`${trip.title} 여행 상품 소개`">
       <div class="container">
-        <div class="course-hero__content">
-          <div class="course-hero__info">
-            <ul class="course-hero__tags" aria-label="강좌 태그">
+        <div class="trip-hero__content">
+          <div class="trip-hero__info">
+            <ul class="trip-hero__tags" aria-label="여행 태그">
               <li
-                v-for="tag in course.tags"
+                v-for="tag in trip.tags"
                 :key="tag"
-                class="course-hero__tag"
+                class="chip"
               >
                 {{ tag }}
               </li>
             </ul>
-            <h1 class="course-hero__title">{{ course.title }}</h1>
-            <p class="course-hero__subtitle">{{ course.detail.subtitle }}</p>
-            <p class="course-hero__description">{{ course.description }}</p>
+            <h1 class="trip-hero__title">{{ trip.title }}</h1>
+            <p class="trip-hero__subtitle">{{ trip.detail.subtitle }}</p>
+            <p class="trip-hero__description">{{ trip.description }}</p>
 
-            <div class="course-hero__meta">
-              <div class="course-hero__meta-item">
-                <span class="course-hero__meta-label">난이도</span>
-                <span class="course-hero__meta-value">{{ course.detail.level }}</span>
+            <div class="trip-hero__meta">
+              <div class="trip-hero__meta-item">
+                <span class="trip-hero__meta-label">여행 기간</span>
+                <span class="trip-hero__meta-value">{{ trip.detail.duration }}</span>
               </div>
-              <div class="course-hero__meta-item">
-                <span class="course-hero__meta-label">수강 기간</span>
-                <span class="course-hero__meta-value">{{ course.detail.duration }}</span>
+              <div class="trip-hero__meta-item">
+                <span class="trip-hero__meta-label">인원</span>
+                <span class="trip-hero__meta-value">{{ trip.detail.groupSize }}</span>
               </div>
-              <div class="course-hero__meta-item">
-                <span class="course-hero__meta-label">수강생</span>
-                <span class="course-hero__meta-value">{{ course.detail.studentCount.toLocaleString() }}명</span>
+              <div class="trip-hero__meta-item">
+                <span class="trip-hero__meta-label">출발지</span>
+                <span class="trip-hero__meta-value">{{ trip.detail.departure }}</span>
               </div>
             </div>
 
-            <div class="course-hero__instructor">
+            <div class="trip-hero__guide">
               <img
-                v-if="instructor"
-                :src="instructor.profileImage.src"
-                :alt="instructor.profileImage.alt"
-                class="course-hero__instructor-image"
+                v-if="guide"
+                :src="guide.profileImage.src"
+                :alt="guide.profileImage.alt"
+                class="trip-hero__guide-image"
               />
-              <div class="course-hero__instructor-info">
-                <span class="course-hero__instructor-label">강사</span>
-                <span class="course-hero__instructor-name">{{ course.instructor }}</span>
+              <div class="trip-hero__guide-info">
+                <span class="trip-hero__guide-label">담당 가이드</span>
+                <span class="trip-hero__guide-name">{{ guide?.name }}</span>
               </div>
             </div>
           </div>
 
-          <div class="course-hero__card">
-            <div class="course-hero__thumbnail">
+          <div class="trip-hero__card">
+            <div class="trip-hero__thumbnail">
               <img
-                :src="course.thumbnail.src"
-                :alt="course.thumbnail.alt"
-                class="course-hero__thumbnail-image"
+                :src="trip.thumbnail.src"
+                :alt="trip.thumbnail.alt"
+                class="trip-hero__thumbnail-image"
               />
             </div>
-            <div class="course-hero__card-body">
-              <div class="course-hero__price">
-                <span class="course-hero__price-current">{{ course.detail.price }}</span>
-                <span class="course-hero__price-original">{{ course.detail.originalPrice }}</span>
+            <div class="trip-hero__card-body">
+              <div class="trip-hero__price">
+                <span class="trip-hero__price-current">{{ trip.detail.price }}</span>
+                <span class="trip-hero__price-original">{{ trip.detail.originalPrice }}</span>
               </div>
-              <div class="course-hero__rating">
-                <span class="course-hero__rating-star">★</span>
-                <span class="course-hero__rating-value">{{ course.detail.rating }}</span>
-                <span class="course-hero__rating-count">({{ course.detail.reviewCount }}개 리뷰)</span>
+              <div class="trip-hero__rating">
+                <span class="trip-hero__rating-star">★</span>
+                <span class="trip-hero__rating-value">{{ trip.detail.rating }}</span>
+                <span class="trip-hero__rating-count">({{ trip.detail.reviewCount }}개 리뷰)</span>
               </div>
-              <ul class="course-hero__features">
+              <ul class="trip-hero__features">
                 <li
-                  v-for="feature in course.detail.features"
+                  v-for="feature in trip.detail.features"
                   :key="feature"
-                  class="course-hero__feature"
+                  class="trip-hero__feature"
                 >
                   {{ feature }}
                 </li>
               </ul>
-              <button
-                type="button"
-                class="course-hero__cta btn btn--primary btn--lg"
-                aria-label="수강 신청하기"
+              <NuxtLink
+                to="/contact"
+                class="trip-hero__cta btn btn--primary btn--lg"
+                aria-label="예약하기"
+
               >
-                수강 신청하기
-              </button>
+                예약하기
+              </NuxtLink>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="course-content section" aria-label="강의 상세 정보">
+    <section class="trip-content section" aria-label="여행 상세 정보">
       <div class="container">
-        <div class="course-content__grid">
-          <div class="course-content__main">
-            <div class="course-section">
-              <h2 class="course-section__title">이런 걸 배워요</h2>
-              <ul class="course-section__list">
+        <div class="trip-content__grid">
+          <div class="trip-content__main">
+            <div class="trip-section">
+              <h2 class="trip-section__title">여행 하이라이트</h2>
+              <ul class="trip-section__list">
                 <li
-                  v-for="item in course.detail.whatYouLearn"
+                  v-for="item in trip.detail.highlights"
                   :key="item"
-                  class="course-section__list-item"
+                  class="trip-section__list-item"
                 >
                   {{ item }}
                 </li>
               </ul>
             </div>
 
-            <div v-if="course.detail.curriculum.length > 0" class="course-section">
-              <h2 class="course-section__title">커리큘럼</h2>
-              <div class="curriculum">
+            <div v-if="trip.detail.itinerary?.length > 0" class="trip-section">
+              <h2 class="trip-section__title">여행 일정</h2>
+              <div class="itinerary">
                 <div
-                  v-for="(section, index) in course.detail.curriculum"
-                  :key="section.title"
-                  class="curriculum__section"
+                  v-for="day in trip.detail.itinerary"
+                  :key="day.day"
+                  class="itinerary__day"
                 >
-                  <h3 class="curriculum__section-title">
-                    <span class="curriculum__section-number">{{ index + 1 }}</span>
-                    {{ section.title }}
+                  <h3 class="itinerary__day-title">
+                    <span class="itinerary__day-number">Day {{ day.day }}</span>
+                    {{ day.title }}
                   </h3>
-                  <ul class="curriculum__lessons">
+                  <ul class="itinerary__schedule">
                     <li
-                      v-for="lesson in section.lessons"
-                      :key="lesson.title"
-                      class="curriculum__lesson"
+                      v-for="item in day.schedule"
+                      :key="item.time"
+                      class="itinerary__item"
                     >
-                      <span class="curriculum__lesson-title">{{ lesson.title }}</span>
-                      <span class="curriculum__lesson-duration">{{ lesson.duration }}</span>
+                      <span class="itinerary__time">{{ item.time }}</span>
+                      <span class="itinerary__activity">{{ item.activity }}</span>
                     </li>
                   </ul>
                 </div>
@@ -169,28 +170,41 @@ useHead({
             </div>
           </div>
 
-          <aside class="course-content__sidebar">
-            <div class="course-sidebar">
-              <div class="course-sidebar__section">
-                <h3 class="course-sidebar__title">수강 대상</h3>
-                <ul class="course-sidebar__list">
+          <aside class="trip-content__sidebar">
+            <div class="trip-sidebar">
+              <div class="trip-sidebar__section">
+                <h3 class="trip-sidebar__title">포함 사항</h3>
+                <ul class="trip-sidebar__list trip-sidebar__list--includes">
                   <li
-                    v-for="item in course.detail.targetAudience"
+                    v-for="item in trip.detail.includes"
                     :key="item"
-                    class="course-sidebar__list-item"
+                    class="trip-sidebar__list-item"
                   >
                     {{ item }}
                   </li>
                 </ul>
               </div>
 
-              <div class="course-sidebar__section">
-                <h3 class="course-sidebar__title">선수 지식</h3>
-                <ul class="course-sidebar__list">
+              <div class="trip-sidebar__section">
+                <h3 class="trip-sidebar__title">불포함 사항</h3>
+                <ul class="trip-sidebar__list trip-sidebar__list--excludes">
                   <li
-                    v-for="item in course.detail.requirements"
+                    v-for="item in trip.detail.excludes"
                     :key="item"
-                    class="course-sidebar__list-item"
+                    class="trip-sidebar__list-item"
+                  >
+                    {{ item }}
+                  </li>
+                </ul>
+              </div>
+
+              <div v-if="trip.detail.notice?.length > 0" class="trip-sidebar__section">
+                <h3 class="trip-sidebar__title">유의 사항</h3>
+                <ul class="trip-sidebar__list trip-sidebar__list--notice">
+                  <li
+                    v-for="item in trip.detail.notice"
+                    :key="item"
+                    class="trip-sidebar__list-item"
                   >
                     {{ item }}
                   </li>
@@ -209,13 +223,13 @@ useHead({
 @use '~/assets/styles/tokens/typography' as *;
 @use '~/assets/styles/tokens/spacing' as *;
 
-.course-detail {
+.trip-detail {
   min-height: 100vh;
 }
 
-.course-hero {
+.trip-hero {
   padding: $space-10 0;
-  background: linear-gradient(135deg, $primary-50 0%, $color-background 100%);
+  background: $neutral-0;
 
   @media (min-width: $container-md) {
     padding: $space-16 0;
@@ -244,19 +258,10 @@ useHead({
     margin-bottom: $space-4;
   }
 
-  &__tag {
-    padding: $space-1 $space-3;
-    font-size: $font-size-sm;
-    font-weight: $font-weight-medium;
-    color: $primary-700;
-    background-color: $primary-100;
-    border-radius: $radius-full;
-  }
-
   &__title {
     font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
-    color: $color-text-primary;
+    color: $neutral-900;
     margin-bottom: $space-2;
     line-height: $line-height-tight;
 
@@ -273,7 +278,7 @@ useHead({
 
   &__description {
     font-size: $font-size-base;
-    color: $color-text-secondary;
+    color: $neutral-600;
     line-height: $line-height-relaxed;
     margin-bottom: $space-6;
 
@@ -301,51 +306,53 @@ useHead({
 
   &__meta-label {
     font-size: $font-size-xs;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 
   &__meta-value {
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: $neutral-900;
   }
 
-  &__instructor {
+  &__guide {
     display: flex;
     align-items: center;
     gap: $space-3;
   }
 
-  &__instructor-image {
+  &__guide-image {
     width: 48px;
     height: 48px;
     border-radius: $radius-full;
     object-fit: cover;
+    border: 2px solid $primary-500;
   }
 
-  &__instructor-info {
+  &__guide-info {
     display: flex;
     flex-direction: column;
     gap: $space-0-5;
   }
 
-  &__instructor-label {
+  &__guide-label {
     font-size: $font-size-xs;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 
-  &__instructor-name {
+  &__guide-name {
     font-size: $font-size-base;
     font-weight: $font-weight-medium;
-    color: $color-text-primary;
+    color: $neutral-900;
   }
 
   &__card {
     width: 100%;
-    background-color: $color-surface;
+    background-color: $neutral-0;
     border-radius: $radius-xl;
     overflow: hidden;
-    box-shadow: 0 4px 24px rgba($neutral-900, 0.1);
+    border: 1px solid $neutral-200;
+    box-shadow: 0 4px 24px rgba($neutral-900, 0.08);
 
     @media (min-width: $container-lg) {
       width: 380px;
@@ -380,12 +387,12 @@ useHead({
   &__price-current {
     font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
-    color: $color-text-primary;
+    color: $primary-600;
   }
 
   &__price-original {
     font-size: $font-size-base;
-    color: $color-text-tertiary;
+    color: $neutral-400;
     text-decoration: line-through;
   }
 
@@ -402,12 +409,12 @@ useHead({
 
   &__rating-value {
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: $neutral-900;
   }
 
   &__rating-count {
     font-size: $font-size-sm;
-    color: $color-text-tertiary;
+    color: $neutral-500;
   }
 
   &__features {
@@ -421,12 +428,12 @@ useHead({
     gap: $space-2;
     padding: $space-2 0;
     font-size: $font-size-sm;
-    color: $color-text-secondary;
-    border-bottom: 1px solid $color-border-light;
+    color: $neutral-700;
+    border-bottom: 1px solid $neutral-200;
 
     &::before {
       content: '✓';
-      color: $success-500;
+      color: $primary-600;
       font-weight: $font-weight-bold;
     }
 
@@ -440,8 +447,8 @@ useHead({
   }
 }
 
-.course-content {
-  background-color: $color-background;
+.trip-content {
+  background-color: $neutral-0;
 
   &__grid {
     display: flex;
@@ -465,13 +472,13 @@ useHead({
   }
 }
 
-.course-section {
+.trip-section {
   margin-bottom: $space-10;
 
   &__title {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
-    color: $color-text-primary;
+    color: $neutral-900;
     margin-bottom: $space-5;
     padding-bottom: $space-3;
     border-bottom: 2px solid $primary-500;
@@ -487,13 +494,13 @@ useHead({
     gap: $space-3;
     padding: $space-3 0;
     font-size: $font-size-base;
-    color: $color-text-secondary;
+    color: $neutral-700;
     line-height: $line-height-relaxed;
-    border-bottom: 1px solid $color-border-light;
+    border-bottom: 1px solid $neutral-200;
 
     &::before {
       content: '✓';
-      color: $primary-500;
+      color: $primary-600;
       font-weight: $font-weight-bold;
       flex-shrink: 0;
     }
@@ -504,65 +511,65 @@ useHead({
   }
 }
 
-.curriculum {
-  &__section {
+.itinerary {
+  &__day {
     margin-bottom: $space-4;
-    background-color: $color-surface;
-    border: 1px solid $color-border-light;
+    background-color: $neutral-0;
+    border: 1px solid $neutral-200;
     border-radius: $radius-lg;
     overflow: hidden;
   }
 
-  &__section-title {
+  &__day-title {
     display: flex;
     align-items: center;
     gap: $space-3;
     padding: $space-4;
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
-    background-color: $neutral-50;
+    color: $neutral-900;
+    background-color: $neutral-100;
   }
 
-  &__section-number {
+  &__day-number {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    padding: $space-1 $space-3;
     font-size: $font-size-sm;
     font-weight: $font-weight-bold;
     color: $neutral-0;
-    background-color: $primary-500;
+    background-color: $primary-600;
     border-radius: $radius-full;
   }
 
-  &__lessons {
+  &__schedule {
     list-style: none;
   }
 
-  &__lesson {
+  &__item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    gap: $space-4;
     padding: $space-3 $space-4;
-    border-top: 1px solid $color-border-light;
+    border-top: 1px solid $neutral-200;
   }
 
-  &__lesson-title {
+  &__time {
     font-size: $font-size-sm;
-    color: $color-text-secondary;
+    font-weight: $font-weight-medium;
+    color: $primary-600;
+    min-width: 60px;
   }
 
-  &__lesson-duration {
-    font-size: $font-size-xs;
-    color: $color-text-tertiary;
+  &__activity {
+    font-size: $font-size-sm;
+    color: $neutral-700;
   }
 }
 
-.course-sidebar {
-  background-color: $color-surface;
-  border: 1px solid $color-border-light;
+.trip-sidebar {
+  background-color: $neutral-0;
+  border: 1px solid $neutral-200;
   border-radius: $radius-xl;
   padding: $space-5;
 
@@ -577,7 +584,7 @@ useHead({
   &__title {
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
-    color: $color-text-primary;
+    color: $neutral-900;
     margin-bottom: $space-3;
   }
 
@@ -591,14 +598,27 @@ useHead({
     gap: $space-2;
     padding: $space-2 0;
     font-size: $font-size-sm;
-    color: $color-text-secondary;
+    color: $neutral-700;
     line-height: $line-height-relaxed;
 
     &::before {
-      content: '•';
-      color: $primary-500;
       font-weight: $font-weight-bold;
     }
+  }
+
+  &__list--includes &__list-item::before {
+    content: '✓';
+    color: $primary-600;
+  }
+
+  &__list--excludes &__list-item::before {
+    content: '✕';
+    color: $error-500;
+  }
+
+  &__list--notice &__list-item::before {
+    content: '!';
+    color: $warning-500;
   }
 }
 </style>
