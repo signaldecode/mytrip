@@ -118,7 +118,7 @@
 
   &__glow {
     position: absolute;
-    border-radius: 50%;
+    border-radius: $radius-full;
 
     &--1 {
       top: 10%;
@@ -160,7 +160,7 @@
     width: 4px;
     height: 4px;
     background: rgba($primary-500, 0.4);
-    border-radius: 50%;
+    border-radius: $radius-full;
     animation: particle-float 15s linear infinite;
     opacity: 0.5;
   }
@@ -204,7 +204,7 @@
     width: 8px;
     height: 8px;
     background: $neutral-0;
-    border-radius: 50%;
+    border-radius: $radius-full;
   }
 
   &__title {
