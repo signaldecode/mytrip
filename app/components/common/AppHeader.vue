@@ -51,6 +51,16 @@ const closeMobileMenu = () => {
             </NuxtLink>
           </li>
         </ul>
+
+        <NuxtLink
+          v-if="props.data.navigation.headerAction"
+          :to="props.data.navigation.headerAction.to"
+          :aria-label="props.data.navigation.headerAction.ariaLabel ?? props.data.navigation.headerAction.label"
+          class="app-header__action"
+          @click="closeMobileMenu"
+        >
+          {{ props.data.navigation.headerAction.label }}
+        </NuxtLink>
       </nav>
 
       <button

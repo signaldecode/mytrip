@@ -10,6 +10,10 @@
     "badge": "FAQ",
     "title": "자주 묻는 질문",
     "description": "마이트립에 대해 궁금한 점을 확인해보세요.",
+    "backgroundImage": {
+      "src": "/images/hero/faq.png",
+      "alt": "FAQ 페이지 히어로 이미지"
+    },
     "ariaLabel": "FAQ 페이지 소개"
   },
   "generalFaq": {

@@ -5,11 +5,12 @@
     "description": "전문 가이드와 함께하는 특별한 여행을 만나보세요. 일본, 동남아, 국내, 유럽 등 다양한 여행 상품."
   },
   "hero": {
-    "title": "당신만을 위한\n특별한 여행",
+    "badge": "We are travel guide",
+    "title": "당신만을 위한 특별한 여행",
     "description": "경험 많은 전문 가이드와 함께 잊지 못할 여행을 떠나세요.",
     "backgroundImage": {
-      "src": "/images/courses-hero-bg.jpg",
-      "alt": "아름다운 여행지 풍경"
+      "src": "/images/hero/about.png",
+      "alt": "여행상품 페이지 히어로 이미지"
     },
     "ariaLabel": "여행상품 페이지 히어로 섹션"
   },

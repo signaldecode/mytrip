@@ -10,6 +10,10 @@
     "badge": "Contact",
     "title": "무엇이든 물어보세요",
     "description": "궁금한 점이나 제안사항이 있으시면 언제든 연락주세요.\n빠른 시일 내에 답변드리겠습니다.",
+    "backgroundImage": {
+      "src": "/images/hero/contact.png",
+      "alt": "문의하기 페이지 히어로 이미지"
+    },
     "ariaLabel": "문의하기 히어로 섹션"
   },
   "form": {

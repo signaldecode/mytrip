@@ -1,6 +1,4 @@
 <script setup>
-import SectionBadge from '~/components/ui/SectionBadge.vue'
-
 defineProps({
   data: {
     type: Object,
@@ -15,11 +13,17 @@ defineProps({
     :aria-label="data.ariaLabel ?? data.title"
   >
     <div class="contact-hero__background">
-      <div class="contact-hero__gradient" />
+      <img
+        v-if="data.backgroundImage"
+        :src="data.backgroundImage.src"
+        :alt="data.backgroundImage.alt"
+        class="contact-hero__bg-image"
+        loading="eager"
+      />
     </div>
 
     <div class="contact-hero__content container">
-      <SectionBadge v-if="data.badge" :label="data.badge" variant="light" />
+      <p v-if="data.badge" class="contact-hero__badge">{{ data.badge }}</p>
       <h1 class="contact-hero__title">{{ data.title }}</h1>
       <p class="contact-hero__description">{{ data.description }}</p>
     </div>

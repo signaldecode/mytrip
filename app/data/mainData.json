@@ -29,9 +29,9 @@
       { "label": "회사소개", "to": "/about", "ariaLabel": "마이트립 소개 페이지로 이동" },
       { "label": "여행상품", "to": "/courses", "ariaLabel": "여행 상품 목록으로 이동" },
       { "label": "여행후기", "to": "/reviews", "ariaLabel": "여행 후기로 이동" },
-      { "label": "FAQ", "to": "/faq", "ariaLabel": "자주 묻는 질문으로 이동" },
-      { "label": "여행문의", "to": "/contact", "ariaLabel": "여행 문의하기로 이동" }
+      { "label": "FAQ", "to": "/faq", "ariaLabel": "자주 묻는 질문으로 이동" }
     ],
+    "headerAction": { "label": "여행문의", "to": "/contact", "ariaLabel": "여행 문의하기로 이동" },
     "footerMenu": [
       { "label": "이용약관", "to": "/terms", "ariaLabel": "이용약관 보기" },
       { "label": "개인정보처리방침", "to": "/privacy", "ariaLabel": "개인정보처리방침 보기" }
@@ -70,11 +70,11 @@
   "home": {
     "_desc": "홈 페이지 섹션 설정",
     "hero": {
-      "title": "나만의 특별한 여행,\n마이트립과 함께",
-      "subtitle": "전문 가이드와 함께하는 맞춤형 프리미엄 여행으로 잊지 못할 추억을 만들어 보세요.",
+      "title": "Where Your Journey Begins.",
+      "subtitle": "여행은 떠나는 순간보다, 돌아온 후 더 오래 남아야 하니까요.",
       "backgroundImage": {
-        "src": "/images/hero/hero_trip.jpeg",
-        "alt": "아름다운 해변의 석양 풍경"
+        "src": "/images/hero/main.png",
+        "alt": "마이트립 메인 히어로 이미지"
       },
       "ctaButtons": [
         {

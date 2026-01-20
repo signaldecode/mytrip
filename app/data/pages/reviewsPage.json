@@ -10,6 +10,10 @@
     "badge": "REVIEWS",
     "title": "여행후기",
     "description": "생생한 여행의 후기를 확인해보세요.",
+    "backgroundImage": {
+      "src": "/images/hero/review.png",
+      "alt": "여행 후기 페이지 히어로 이미지"
+    },
     "ariaLabel": "여행 후기 페이지 소개"
   },
   "photoReviews": {
